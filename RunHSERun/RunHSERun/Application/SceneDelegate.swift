@@ -74,3 +74,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let firstUrl = URLContexts.first?.url else {
+            return
+        }
+
+        var manager = FriendsManager(friendsService: FriendsService(grpcChannel: GRPCChannelProvider().grpcChannel),
+                    secureSettingsKeeper: SecureSettingsKeeper())
+
+        guard let id = Int(firstUrl.absoluteString) else {
+            return
+        }
+        manager.makeAddFriendRequest(userId: id, completion: {_ in })
+    }
+}
