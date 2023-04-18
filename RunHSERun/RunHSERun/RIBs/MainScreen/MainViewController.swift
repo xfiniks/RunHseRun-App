@@ -9,7 +9,7 @@ protocol MainPresentableListener: AnyObject {
     // interactor class.
 }
 
-final class MainViewController: FloatingTabBarController, MainPresentable, MainViewControllable {
+final class MainViewController: FloatingTabBarController, MainPresentable {
 
     weak var listener: MainPresentableListener?
 
@@ -38,4 +38,25 @@ final class MainViewController: FloatingTabBarController, MainPresentable, MainV
 
     }
     
+}
+
+extension MainViewController: MainViewControllable {
+
+    func replaceModal(viewController: ViewControllable?) {
+        if presentedViewController != nil {
+            dismiss(animated: true) { [weak self] in
+                self?.presentTargetViewController(viewController: viewController)
+            }
+        } else {
+            presentTargetViewController(viewController: viewController)
+        }
+    }
+
+    private func presentTargetViewController(viewController: ViewControllable?) {
+        if let viewController = viewController {
+            viewController.uiviewController.modalPresentationStyle = .fullScreen
+            present(viewController.uiviewController, animated: true)
+        }
+    }
+
 }

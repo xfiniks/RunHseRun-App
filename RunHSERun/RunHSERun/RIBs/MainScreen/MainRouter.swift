@@ -14,6 +14,7 @@ protocol MainInteractable: Interactable {
 
 protocol MainViewControllable: ViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func replaceModal(viewController: ViewControllable?)
 }
 
 final class MainRouter: ViewableRouter<MainInteractable, MainViewControllable>, MainRouting {

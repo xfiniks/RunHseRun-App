@@ -110,7 +110,7 @@ extension AuthorizationInteractor: NicknameChoosingPresentableListener {
             case .success(let response):
                 switch response {
                 case .moveNext:
-                    self?.router?.moveToNicknameChoosing()
+                    break
                 }
 
             case .failure(let error):

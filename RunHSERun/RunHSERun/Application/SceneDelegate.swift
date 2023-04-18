@@ -20,10 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let config = ChatClientConfig(apiKey: .init("dz5f4d5kzrue"))
+        let config = ChatClientConfig(apiKey: .init("t98e853j53m4"))
 
         let userInfo: UserInfo = .init(id: "user-1")
-        let token: StreamChat.Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidHV0b3JpYWwtZHJvaWQifQ.NhEr0hP9W9nwqV7ZkdShxvi02C5PR7SJE7Cs4y7kyqg"
+        let token: StreamChat.Token =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidHV0b3JpYWwtZHJvaWQifQ.NhEr0hP9W9nwqV7ZkdShxvi02C5P7SJE7Cs4y7kyqg"
         /// Step 1: create an instance of ChatClient and share it using the singleton
         ChatClient.shared = ChatClient(config: config)
 
@@ -47,7 +47,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.launchRouter = launchRouter
         launchRouter.launch(from: window!)
 
-//        window?.rootViewController = MainScreenViewController()
+//        let v = WaitingScreenViewController()
+//        window?.rootViewController = v
+//
 //
 //        window?.makeKeyAndVisible()
     }
