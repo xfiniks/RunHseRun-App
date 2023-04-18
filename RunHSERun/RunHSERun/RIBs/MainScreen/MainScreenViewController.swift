@@ -99,8 +99,16 @@ final class MainScreenViewController: UIViewController {
         nicknameLabel.text = "xfiniks"
     }
 
+    @objc
+    private func moveToQrScreen() {
+        let vc = QrViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+
     private func configurQrCodeButton() {
         qrCodeButton.setBackgroundImage(UIImage(named: "qr")?.withTintColor(.white), for: .normal)
+        qrCodeButton.addTarget(self, action: #selector(moveToQrScreen), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
             qrCodeButton.heightAnchor.constraint(equalToConstant: 30),
@@ -414,11 +422,5 @@ final class MainScreenViewController: UIViewController {
             startGameWithFriendButton.widthAnchor.constraint(equalToConstant: 360),
         ])
     }
-
-}
-
-extension MainScreenViewController: MainScreenPresentable {
-
-
 
 }
