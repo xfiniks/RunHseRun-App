@@ -1,0 +1,45 @@
+PODS:
+  - AEOTPTextField (1.2.6)
+  - CGMath (1.0.2)
+  - FloatingTabBarController (1.0.0):
+    - CGMath
+  - RIBs (0.9.3):
+    - RxRelay (~> 6.0.0)
+    - RxSwift (~> 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+
+DEPENDENCIES:
+  - AEOTPTextField
+  - FloatingTabBarController
+  - RIBs (from `https://github.com/uber/RIBs`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AEOTPTextField
+    - CGMath
+    - FloatingTabBarController
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  RIBs:
+    :git: https://github.com/uber/RIBs
+
+CHECKOUT OPTIONS:
+  RIBs:
+    :commit: a8677bb238bdb6ef054f83af94ad274103e0d75f
+    :git: https://github.com/uber/RIBs
+
+SPEC CHECKSUMS:
+  AEOTPTextField: a275823fde05601c5da7f8fb66aaecb41289b370
+  CGMath: 41d118f6890c0e1a7aa10bd262f6f199590f72aa
+  FloatingTabBarController: 2e5aeb6a5e28cd907c10f172437e48788a214f31
+  RIBs: dd8df1129289d51ed4fec6e2127613d9eaba204e
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+
+PODFILE CHECKSUM: 6a0241e95c6cd333ebb628b12fd6e8736b18bba1
+
+COCOAPODS: 1.11.3
