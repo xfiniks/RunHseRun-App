@@ -9,17 +9,7 @@ protocol GamePresentableListener: AnyObject {
     // interactor class.
 }
 
-final class GameViewController: UIViewController, GamePresentable {
-
-    var viewModel: GameViewModel? {
-        didSet {
-            guard isViewLoaded, viewModel != oldValue else {
-                return
-            }
-
-            updateUI()
-        }
-    }
+final class GameViewController: UIViewController, GamePresentable, GameViewControllable {
 
     weak var listener: GamePresentableListener?
 
@@ -43,7 +33,6 @@ final class GameViewController: UIViewController, GamePresentable {
         super.viewDidLoad()
         configureUI()
         applyColorScheme()
-        updateUI()
     }
 
     private func configureUI() {
@@ -57,34 +46,8 @@ final class GameViewController: UIViewController, GamePresentable {
         configureMakePhotoButton()
 
         imagePicker = ImagePicker(presentationController: self, delegate: self)
-    }
-
-    private func updateUI() {
-        guard let viewModel = viewModel else {
-            return
-        }
-
-        textPredictor = TextPredictor(audinces: viewModel.audiences) { [weak self] _ in
-            if self?.currentStage == 2 {
-                let vc = GameResultViewController()
-                vc.viewModel = .init(result: "You win!", opponent: "")
-                vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: true)
-
-            }
-            else {
-                self?.setNewStage()
-            }
-            self?.currentStage += 1
-        }
-    }
-
-    @objc
-    private func c() {
-        if currentStage == 2 {
-            let vc = GameResultViewController()
-            vc.viewModel = .init(result: "You win!", opponent: "")
-
+        textPredictor = TextPredictor(audinces: ["", "", ""]) { _ in
+            print(true)
         }
     }
 
@@ -94,7 +57,7 @@ final class GameViewController: UIViewController, GamePresentable {
     }
 
     private func configureRoomLabel() {
-        roomLabel.text = "R201"
+        roomLabel.text = "N506"
         roomLabel.font = .boldSystemFont(ofSize: 70)
     }
 
@@ -122,7 +85,7 @@ final class GameViewController: UIViewController, GamePresentable {
     }
 
     private func configureMakePhotoButton() {
-//        makePhotoButton.addTarget(self, action: #selector(setNewStage), for: .touchUpInside)
+        makePhotoButton.addTarget(self, action: #selector(setNewStage), for: .touchUpInside)
     }
 
     private func applyColorScheme() {
@@ -132,13 +95,6 @@ final class GameViewController: UIViewController, GamePresentable {
         timeDescriptionLabel.textColor = .white
         timeContainerView.backgroundColor = .white
         timeLabel.textColor = UIColor(named: "back")
-    }
-
-    private var currentStage = 0
-
-    @objc
-    private func makePhoto() {
-        imagePicker.present(from: view)
     }
 
     private func addSubviews() {
@@ -153,9 +109,6 @@ final class GameViewController: UIViewController, GamePresentable {
                                         textColor: UIColor(named: "back")!,
                                         font: UIFont.systemFont(ofSize: 15),
                                         bgColor: .white)
-
-        makePhotoButton.addTarget(self, action: #selector(makePhoto), for: .touchUpInside)
-
         [
             audienceLabel,
             roomLabel,
@@ -217,7 +170,7 @@ final class GameViewController: UIViewController, GamePresentable {
     private func setNewStage() {
         gameBottomRoomsView.setNewRooms(leftRoom: "R506", rightRoom: "D201")
         roomsProgressView.setSectionCompleted(time: "00:20")
-        roomLabel.text = viewModel?.audiences[currentStage]
+
         configureRoomsProgressView()
     }
     
@@ -230,33 +183,8 @@ extension GameViewController: ImagePickerDelegate {
             return
         }
 
-        textPredictor.makeRequest(userImage: image)
 
-    }
 
-}
-
-extension GameViewController: GameViewControllable {
-
-    func setViewModel(viewModel: GameViewModel) {
-        self.viewModel = viewModel
-    }
-
-    func replaceModal(viewController: ViewControllable?) {
-        if presentedViewController != nil {
-            dismiss(animated: true) { [weak self] in
-                self?.presentTargetViewController(viewController: viewController)
-            }
-        } else {
-            presentTargetViewController(viewController: viewController)
-        }
-    }
-
-    private func presentTargetViewController(viewController: ViewControllable?) {
-        if let viewController = viewController {
-            viewController.uiviewController.modalPresentationStyle = .fullScreen
-            present(viewController.uiviewController, animated: true)
-        }
     }
 
 }

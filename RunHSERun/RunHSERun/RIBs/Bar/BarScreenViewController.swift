@@ -6,20 +6,18 @@ final class BarScreenViewController: FloatingTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let viewControllers = [UINavigationController(
-            rootViewController: iMessageChatChannelListViewController()), MainScreenViewController(), RegistrationViewController()]
-
-        let selected = [
-                        UIImage(named: "Chat" + "_Large")!,
+        let viewControllers = [RegistrationViewController(), MainScreenViewController(), UINavigationController(
+            rootViewController: iMessageChatChannelListViewController()
+        )]
+        let selected = [UIImage(named: "Friends" + "_Large")!,
                         UIImage(named: "Game" + "_Large")!,
-                        UIImage(named: "Friends" + "_Large")!]
+                        UIImage(named: "Chat" + "_Large")!]
 
-        let normal = [
-                      UIImage(named: "Chat" + "_Small")!,
+        let normal = [UIImage(named: "Friends" + "_Small")!,
                       UIImage(named: "Game" + "_Small")!,
-                      UIImage(named: "Friends" + "_Small")!]
+                      UIImage(named: "Chat" + "_Small")!]
 
-        let titles = ["Chat", "Game", "Friends"]
+        let titles = ["Friends", "Game", "Chat"]
 
 
         self.viewControllers = [0, 1, 2].map {

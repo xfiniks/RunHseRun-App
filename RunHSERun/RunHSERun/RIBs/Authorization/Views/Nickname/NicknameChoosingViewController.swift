@@ -182,20 +182,6 @@ final class NicknameChoosingViewController: UIViewController {
     @objc
     private func signIn() {
         listener?.signIn(nickname: textField.text ?? "xfiniks")
-        if presentedViewController != nil {
-            dismiss(animated: true) { [weak self] in
-                self?.presentTargetViewController(viewController: BarScreenViewController())
-            }
-        } else {
-            presentTargetViewController(viewController: BarScreenViewController())
-        }
-    }
-
-    private func presentTargetViewController(viewController: UIViewController?) {
-        if let viewController = viewController {
-            viewController.modalPresentationStyle = .fullScreen
-            present(viewController, animated: true)
-        }
     }
 
     private func applyColorScheme() {
@@ -208,7 +194,7 @@ final class NicknameChoosingViewController: UIViewController {
         logoImageView = UIImageView()
         label = UILabel()
         textField = UITextField()
-        button = LoadingButton(text: "Run!", textColor: .white, font: UIFont.systemFont(ofSize: 20), bgColor: UIColor(named: "back")!)
+        button = LoadingButton(text: "Run!", textColor: .white, font: UIFont.systemFont(ofSize: 20))
 //        button = LoadingButton(text: "Run!", textColor: UIColor(named: "back"), font: UIFont.systemFont(ofSize: 20), bgColor: .clear)
         bottomElementsView = UIView()
         mailDescription = UILabel()

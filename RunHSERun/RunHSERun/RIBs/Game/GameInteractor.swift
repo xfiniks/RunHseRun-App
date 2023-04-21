@@ -10,9 +10,6 @@ import RxSwift
 
 protocol GameRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func moveToWaiting()
-    func moveToGame(audiences: [String], currentAudience: Int, completion: @escaping ((PredictResult) -> Void))
-    func moveToResults(result: String, opponent: String)
 }
 
 protocol GamePresentable: Presentable {

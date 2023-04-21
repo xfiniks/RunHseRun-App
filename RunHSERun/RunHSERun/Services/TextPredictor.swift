@@ -10,7 +10,7 @@ enum PredictResult {
 final class TextPredictor {
 
     private let audinces: [String]
-    private var currentStage: Int
+    private let currentStage: Int
     private let completion: (PredictResult) -> Void
 
     init(audinces: [String], completion: @escaping (PredictResult) -> Void) {
@@ -19,7 +19,7 @@ final class TextPredictor {
         self.completion = completion
     }
 
-    func makeRequest(userImage : UIImage) {
+    func makeRequest(userImage : UIImage, audience: String, complition: (PredictResult) -> Void) {
         let preprocessImage = scaleAndOrient(image: userImage)
 
         guard let cgImage = preprocessImage.cgImage else {
@@ -62,7 +62,6 @@ final class TextPredictor {
                         completion(.success(isLastAudience: true))
                     }
                     else {
-                        currentStage += 1
                         completion(.success(isLastAudience: false))
                     }
                 }

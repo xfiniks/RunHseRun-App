@@ -58,6 +58,8 @@ final class MainScreenViewController: UIViewController {
     private var startGamebutton: LoadingButton!
     private var startGameWithFriendButton: LoadingButton!
 
+    var service = UserService(grpcChannel: GRPCChannelProvider().grpcChannel)
+
     override func loadView() {
         view = UIView()
         addSubviews()
@@ -128,59 +130,44 @@ final class MainScreenViewController: UIViewController {
 
     }
 
-    private var streamManager = StreamManager(stream: GRPCStream(grpcChannel: GRPCChannelProvider().grpcChannel), secureSettingsKeeper: SecureSettingsKeeper())
-
     @objc
     private func makeRequest() {
-        streamManager.startGame { [weak self] result in
-            switch result {
-            case .success(let response):
-                switch response {
-                case .gameInfo(let info):
-                    DispatchQueue.main.async { [weak self] in
-                        let vc = GameViewController()
-                        vc.viewModel = .init(audiences: ["R201", "R406", "S302"], currentAudience: "R201") { _ in
-                            vc.viewModel = .init(audiences: ["R201", "R406", "S302"], currentAudience: "R406") { _ in
-                                vc.viewModel = .init(audiences: ["R201", "R406", "S302"], currentAudience: "S302") { _ in
-                                    let manager = GameManager(gameService: GameService(grpcChannel: GRPCChannelProvider().grpcChannel), secureSettingsKeeper: SecureSettingsKeeper())
-                                    manager.makeSendTimeRequest(time: 349, gameId: 3) { result in
-
-                                    }
-                                }
-                            }
-                        }
-                        vc.modalPresentationStyle = .fullScreen
-                        self?.present(vc, animated: true)
-                    }
-
-                case .gameResult(let result):
-                    DispatchQueue.main.async {
-                        let vc = GameResultViewController()
-                        vc.modalPresentationStyle = .fullScreen
-                        vc.viewModel = .init(result: "You win!", opponent: "")
-                        self?.present(vc, animated: true)
-                    }
-                }
-
-            case .failure(let error):
-                print(error)
-            }
-        }
-        let vc = FindAudienceViewController()
-        vc.viewModel = .init(rows: [.init(title: "R206", id: 1),
-                                    .init(title: "R207", id: 1),
-                                    .init(title: "R208", id: 1),
-                                    .init(title: "R302", id: 1),
-                                    .init(title: "R303", id: 1),
-                                    .init(title: "R304", id: 1),
-                                    .init(title: "R305", id: 1),
-                                    .init(title: "R306", id: 1),
-                                    .init(title: "R402", id: 1),
-                                    .init(title: "R405", id: 1),
-                                    .init(title: "R406", id: 1),
-                                    .init(title: "R407", id: 1)])
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+//        var req = Run_Hse_Run_ChangeImageRequest()
+//        print(1111)
+//        guard let image = UIImage(named: "imagetest")
+//        else {
+//            return
+//        }
+//
+//        let smallerImage = image.scalePreservingAspectRatio(targetSize: CGSize(width: 150, height: 150))
+//        guard let data = image.pngData() else {
+//            print("fail")
+//            return
+//        }
+//
+//        let encodedImage = data.base64EncodedString()
+//        print(encodedImage.count)
+//        req.newImage = encodedImage
+//
+//        service.makeChangeImageRequest(with: req) { result in
+//            switch result {
+//            case .success:
+//                print("success")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//
+//        service.makeGetMeRequest() { [weak self] result in
+//            switch result {
+//            case .success(let response):
+//                print(response.image.count)
+//                let img = UIImage(data: Data(base64Encoded: response.image)!)
+//                self?.avatarImageView.image = img
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
 
     private func configureLeaderboard() {
@@ -281,9 +268,6 @@ final class MainScreenViewController: UIViewController {
         thirdPlaceNicknameLabel = UILabel()
         thirdPlaceImageContainer = UIView()
         startGamebutton = LoadingButton(text: "Start Game", textColor: UIColor(named: "back")!, font: UIFont.systemFont(ofSize: 20), bgColor: .white)
-
-        startGamebutton.addTarget(self, action: #selector(makeRequest), for: .touchUpInside)
-
         startGameWithFriendButton = LoadingButton(text: "Start game with friend", textColor: UIColor(named: "back")!, font: UIFont.systemFont(ofSize: 20), bgColor: .white)
 
         let firstPlaceStackView = UIStackView()

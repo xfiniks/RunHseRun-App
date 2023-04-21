@@ -35,14 +35,6 @@
 		9D5AE2FC29EE2BC80016BB80 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE2FB29EE2BC80016BB80 /* GameManager.swift */; };
 		9D5AE2FF29EE2EC10016BB80 /* FriendsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE2FE29EE2EC10016BB80 /* FriendsManager.swift */; };
 		9D5AE30129EE30B10016BB80 /* StreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE30029EE30B10016BB80 /* StreamManager.swift */; };
-		9D5AE30429EE35EA0016BB80 /* FindAudienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE30329EE35EA0016BB80 /* FindAudienceViewController.swift */; };
-		9D5AE35329EE36A00016BB80 /* FindAudienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE35229EE36A00016BB80 /* FindAudienceViewModel.swift */; };
-		9D5AE35529EE38C00016BB80 /* AudienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE35429EE38C00016BB80 /* AudienceCell.swift */; };
-		9D5AE35729EE3E390016BB80 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE35629EE3E390016BB80 /* GameResultViewController.swift */; };
-		9D5AE35929EE3F1F0016BB80 /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE35829EE3F1F0016BB80 /* GameResultViewModel.swift */; };
-		9D5AE35B29EE47050016BB80 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE35A29EE47050016BB80 /* WaitingScreenViewController.swift */; };
-		9D5AE35D29EEA2630016BB80 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE35C29EEA2630016BB80 /* GameViewModel.swift */; };
-		9D5AE36129EED9D90016BB80 /* QrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AE36029EED9D90016BB80 /* QrViewController.swift */; };
 		9D6E4DF229EC8343004C60AD /* VoidResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4DF129EC8343004C60AD /* VoidResult.swift */; };
 		9D6E4DF529EC9D3F004C60AD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4DF429EC9D3F004C60AD /* UserService.swift */; };
 		9D6E4DF829EC9E81004C60AD /* GRPCChannelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4DF729EC9E81004C60AD /* GRPCChannelProvider.swift */; };
@@ -127,14 +119,6 @@
 		9D5AE2FB29EE2BC80016BB80 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		9D5AE2FE29EE2EC10016BB80 /* FriendsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsManager.swift; sourceTree = "<group>"; };
 		9D5AE30029EE30B10016BB80 /* StreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamManager.swift; sourceTree = "<group>"; };
-		9D5AE30329EE35EA0016BB80 /* FindAudienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAudienceViewController.swift; sourceTree = "<group>"; };
-		9D5AE35229EE36A00016BB80 /* FindAudienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAudienceViewModel.swift; sourceTree = "<group>"; };
-		9D5AE35429EE38C00016BB80 /* AudienceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudienceCell.swift; sourceTree = "<group>"; };
-		9D5AE35629EE3E390016BB80 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
-		9D5AE35829EE3F1F0016BB80 /* GameResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
-		9D5AE35A29EE47050016BB80 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
-		9D5AE35C29EEA2630016BB80 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		9D5AE36029EED9D90016BB80 /* QrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrViewController.swift; sourceTree = "<group>"; };
 		9D6E4DF129EC8343004C60AD /* VoidResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResult.swift; sourceTree = "<group>"; };
 		9D6E4DF429EC9D3F004C60AD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		9D6E4DF729EC9E81004C60AD /* GRPCChannelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCChannelProvider.swift; sourceTree = "<group>"; };
@@ -225,8 +209,8 @@
 		9D09289629E9E126008C8119 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				9D5AE30229EE35CB0016BB80 /* Views */,
 				9D6E4EBE29EDCBB9004C60AD /* GameRouter.swift */,
+				9D6E4EBF29EDCBB9004C60AD /* GameViewController.swift */,
 				9D6E4EC029EDCBB9004C60AD /* GameBuilder.swift */,
 				9D6E4EC129EDCBB9004C60AD /* GameInteractor.swift */,
 			);
@@ -334,29 +318,6 @@
 				9D47879E2972C9A5003A2CAE /* OTPViewController.swift */,
 			);
 			path = OTP;
-			sourceTree = "<group>";
-		};
-		9D5AE30229EE35CB0016BB80 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9D5AE35429EE38C00016BB80 /* AudienceCell.swift */,
-				9D5AE35129EE368D0016BB80 /* ViewModels */,
-				9D6E4EBF29EDCBB9004C60AD /* GameViewController.swift */,
-				9D5AE30329EE35EA0016BB80 /* FindAudienceViewController.swift */,
-				9D5AE35629EE3E390016BB80 /* GameResultViewController.swift */,
-				9D5AE35A29EE47050016BB80 /* WaitingScreenViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9D5AE35129EE368D0016BB80 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				9D5AE35229EE36A00016BB80 /* FindAudienceViewModel.swift */,
-				9D5AE35829EE3F1F0016BB80 /* GameResultViewModel.swift */,
-				9D5AE35C29EEA2630016BB80 /* GameViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9D6E4DF029EC8324004C60AD /* Helpers */ = {
@@ -792,7 +753,6 @@
 				9D6E4EA729ED863B004C60AD /* RequestError.swift in Sources */,
 				9DB8882729E5FDCA0068590A /* iMessageChatChannelListViewController.swift in Sources */,
 				9DB8882B29E5FDCA0068590A /* iMessageChatChannelHeaderView.swift in Sources */,
-				9D5AE35329EE36A00016BB80 /* FindAudienceViewModel.swift in Sources */,
 				9D10C6A029EC444A00B27D9B /* auth_service.pb.swift in Sources */,
 				9DF637E12964B986000BBBF2 /* RegistrationViewController.swift in Sources */,
 				9D6E4E5629ED5BF1004C60AD /* UserDataKeeper.swift in Sources */,
@@ -829,17 +789,14 @@
 				9D10C6A129EC444A00B27D9B /* friend_service.grpc.swift in Sources */,
 				9DB8887F29E78ED60068590A /* NicknameChoosingViewController.swift in Sources */,
 				9D6E4E5029ED5321004C60AD /* RootRouter.swift in Sources */,
-				9D5AE35529EE38C00016BB80 /* AudienceCell.swift in Sources */,
 				9D6E4ED229EDD59A004C60AD /* TextPredictor.swift in Sources */,
 				9D10C69D29EC444900B27D9B /* game_server.pb.swift in Sources */,
 				9D6E4EC229EDCBB9004C60AD /* GameRouter.swift in Sources */,
 				9DF637DF2964B986000BBBF2 /* SceneDelegate.swift in Sources */,
 				9D10C69B29EC444900B27D9B /* user_service.pb.swift in Sources */,
 				9D6E4DF529EC9D3F004C60AD /* UserService.swift in Sources */,
-				9D5AE35729EE3E390016BB80 /* GameResultViewController.swift in Sources */,
 				9D6E4ECD29EDCFC7004C60AD /* MainInteractor.swift in Sources */,
 				9D10C69929EC444900B27D9B /* friend_service.pb.swift in Sources */,
-				9D5AE35929EE3F1F0016BB80 /* GameResultViewModel.swift in Sources */,
 				9D6E4DF829EC9E81004C60AD /* GRPCChannelProvider.swift in Sources */,
 				9D6E4EC329EDCBB9004C60AD /* GameViewController.swift in Sources */,
 				9D6E4EB429EDB313004C60AD /* RootComponent+Authorization.swift in Sources */,
@@ -848,7 +805,6 @@
 				9D6E4EC429EDCBB9004C60AD /* GameBuilder.swift in Sources */,
 				9D6E4E5129ED5321004C60AD /* RootViewController.swift in Sources */,
 				9DB8881B29E5BC060068590A /* ImagePicker.swift in Sources */,
-				9D5AE30429EE35EA0016BB80 /* FindAudienceViewController.swift in Sources */,
 				9D6E4EC529EDCBB9004C60AD /* GameInteractor.swift in Sources */,
 				9D6E4EB729EDC144004C60AD /* GRPCStream.swift in Sources */,
 				9DB8881429E5AEE60068590A /* SecureStorage+Token.swift in Sources */,
@@ -858,7 +814,6 @@
 				9D6E4EB029ED9123004C60AD /* AuthorizationBuilder.swift in Sources */,
 				9D5AE2FA29EE249B0016BB80 /* UserManager.swift in Sources */,
 				9D5AE2F829EE1DDE0016BB80 /* FriendsService.swift in Sources */,
-				9D5AE35D29EEA2630016BB80 /* GameViewModel.swift in Sources */,
 				9DB8883029E5FDE60068590A /* SplashViewController.swift in Sources */,
 				9DF6384A2964D0D6000BBBF2 /* GradientView.swift in Sources */,
 				9D6E4ECC29EDCFC7004C60AD /* MainBuilder.swift in Sources */,
@@ -868,7 +823,6 @@
 				9DB8882E29E5FDCA0068590A /* iMessageChatChannelListItemView.swift in Sources */,
 				9DB8882D29E5FDCA0068590A /* iMessageChatMessageListViewController.swift in Sources */,
 				9D10C69F29EC444900B27D9B /* room.pb.swift in Sources */,
-				9D5AE35B29EE47050016BB80 /* WaitingScreenViewController.swift in Sources */,
 				9DF638542964D363000BBBF2 /* UIView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1014,8 +968,6 @@
 				DEVELOPMENT_TEAM = 88899A28T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RunHSERun/Resources/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to check audience";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to check audience";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1053,8 +1005,6 @@
 				DEVELOPMENT_TEAM = 88899A28T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RunHSERun/Resources/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to check audience";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to check audience";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

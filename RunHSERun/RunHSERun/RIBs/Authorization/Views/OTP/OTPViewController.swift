@@ -45,7 +45,6 @@ final class OTPViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         applyColorScheme()
-        timerLabel.isHidden = true
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,6 +202,7 @@ final class OTPViewController: UIViewController {
 extension OTPViewController: AEOTPTextFieldDelegate, UITextFieldDelegate {
 
     func didUserFinishEnter(the code: String) {
+        print(code)
         listener?.signIn(code: Int(code) ?? 1234)
     }
 
