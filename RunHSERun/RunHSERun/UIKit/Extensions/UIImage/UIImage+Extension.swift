@@ -2,6 +2,16 @@ import UIKit
 
 extension UIImage {
 
+    convenience init?(base64String: String) {
+        guard let stringData = Data(base64Encoded: base64String),
+              let uiImage = UIImage(data: stringData) else {
+            print("Error: couldn't create UIImage")
+            return nil
+        }
+
+        self.init(data: stringData)
+    }
+
     func scalePreservingAspectRatio(targetSize: CGSize) -> UIImage {
         // Determine the scale factor that preserves aspect ratio
         let widthRatio = targetSize.width / size.width

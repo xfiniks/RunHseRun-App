@@ -93,20 +93,14 @@ final class OTPViewController: UIViewController {
     }
 
     private func configureOTPTextField() {
-//        otpTextField.otpDefaultCharacter = "*"
-//        otpTextField.otpBackgroundColor = .clear
         otpTextField.otpDefaultBorderColor = .clear
         otpTextField.otpFilledBorderColor = .clear
-//        otpTextField.otpFilledBackgroundColor = .clear
         otpTextField.otpFontSize = 20
         otpTextField.otpFont = UIFont.systemFont(ofSize: 30)
         otpTextField.configure(with: 4)
         otpTextField.otpDelegate = self
 
         NSLayoutConstraint.activate([
-//            otpTextField.heightAnchor.constraint(equalToConstant: 30),
-//            otpTextField.widthAnchor.constraint(equalToConstant: 145)
-//            otpTextField.heightAnchor.constraint(equalToConstant: 60),
             otpTextField.heightAnchor.constraint(equalToConstant: 50),
             otpTextField.widthAnchor.constraint(equalToConstant: 230)
         ])

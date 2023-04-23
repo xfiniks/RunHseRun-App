@@ -56,7 +56,7 @@ final class FriendsService {
 
         DispatchQueue.global(qos: .userInitiated).async {
             do {
-                let response = try call.response.wait()
+                let _ = try call.response.wait()
                 DispatchQueue.main.async {
                     completion(.success)
                 }

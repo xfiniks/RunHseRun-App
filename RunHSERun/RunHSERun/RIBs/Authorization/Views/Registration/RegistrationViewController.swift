@@ -106,8 +106,6 @@ final class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         applyColorScheme()
-        stream = GRPCStream(channel: GRPCChannelProvider().grpcChannel!)
-        stream?.startGame()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -180,9 +178,7 @@ final class RegistrationViewController: UIViewController {
 
     @objc
     private func signIn() {
-//        stream.putInQueue()
-        stream?.sendTime()
-//                listener?.signIn(email: textField.text ?? "xfiniks@gmail.com")
+        listener?.signIn(email: textField.text ?? "xfiniks@gmail.com")
     }
 
     private func addSubviews() {
@@ -264,7 +260,5 @@ extension RegistrationViewController: AuthorizationViewControllable {
 }
 
 extension RegistrationViewController: RegistrationPresentable {
-
-    
 
 }

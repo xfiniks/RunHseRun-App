@@ -78,6 +78,19 @@
 		9DB8883029E5FDE60068590A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8882F29E5FDE60068590A /* SplashViewController.swift */; };
 		9DB8887F29E78ED60068590A /* NicknameChoosingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8887E29E78ED60068590A /* NicknameChoosingViewController.swift */; };
 		9DB8888229E825EA0068590A /* BarScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8888129E825EA0068590A /* BarScreenViewController.swift */; };
+		9DBAAFB429F33E3D0001DD32 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFB329F33E3D0001DD32 /* User.swift */; };
+		9DBAAFBB29F349390001DD32 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFBA29F349390001DD32 /* MainScreenViewModel.swift */; };
+		9DBAAFBE29F59B200001DD32 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFBD29F59B200001DD32 /* Observable.swift */; };
+		9DBAAFC029F5A5300001DD32 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFBF29F5A5300001DD32 /* GameInfo.swift */; };
+		9DBAAFC229F5A5770001DD32 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFC129F5A5770001DD32 /* Room.swift */; };
+		9DBAAFC529F5AB750001DD32 /* Locking+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFC429F5AB750001DD32 /* Locking+Extension.swift */; };
+		9DBAAFC729F5ABA30001DD32 /* Locking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFC629F5ABA30001DD32 /* Locking.swift */; };
+		9DBAAFCA29F5BA500001DD32 /* WaitingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFC929F5BA500001DD32 /* WaitingScreenViewController.swift */; };
+		9DBAAFCD29F5C4750001DD32 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFCC29F5C4750001DD32 /* Int+Extension.swift */; };
+		9DBAAFCF29F5CCA50001DD32 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFCE29F5CCA50001DD32 /* ResultsViewController.swift */; };
+		9DBAAFD129F5D1620001DD32 /* ChooseStartRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFD029F5D1620001DD32 /* ChooseStartRoomViewController.swift */; };
+		9DBAAFD429F5DFF10001DD32 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFD329F5DFF10001DD32 /* FriendsViewController.swift */; };
+		9DBAAFD629F5E28C0001DD32 /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFD529F5E28C0001DD32 /* FindFriendsViewController.swift */; };
 		9DF637DD2964B986000BBBF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF637DC2964B986000BBBF2 /* AppDelegate.swift */; };
 		9DF637DF2964B986000BBBF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF637DE2964B986000BBBF2 /* SceneDelegate.swift */; };
 		9DF637E12964B986000BBBF2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF637E02964B986000BBBF2 /* RegistrationViewController.swift */; };
@@ -162,6 +175,19 @@
 		9DB8882F29E5FDE60068590A /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9DB8887E29E78ED60068590A /* NicknameChoosingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChoosingViewController.swift; sourceTree = "<group>"; };
 		9DB8888129E825EA0068590A /* BarScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarScreenViewController.swift; sourceTree = "<group>"; };
+		9DBAAFB329F33E3D0001DD32 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9DBAAFBA29F349390001DD32 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		9DBAAFBD29F59B200001DD32 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		9DBAAFBF29F5A5300001DD32 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		9DBAAFC129F5A5770001DD32 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		9DBAAFC429F5AB750001DD32 /* Locking+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locking+Extension.swift"; sourceTree = "<group>"; };
+		9DBAAFC629F5ABA30001DD32 /* Locking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locking.swift; sourceTree = "<group>"; };
+		9DBAAFC929F5BA500001DD32 /* WaitingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingScreenViewController.swift; sourceTree = "<group>"; };
+		9DBAAFCC29F5C4750001DD32 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		9DBAAFCE29F5CCA50001DD32 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		9DBAAFD029F5D1620001DD32 /* ChooseStartRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseStartRoomViewController.swift; sourceTree = "<group>"; };
+		9DBAAFD329F5DFF10001DD32 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		9DBAAFD529F5E28C0001DD32 /* FindFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsViewController.swift; sourceTree = "<group>"; };
 		9DF637D92964B986000BBBF2 /* RunHSERun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunHSERun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF637DC2964B986000BBBF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DF637DE2964B986000BBBF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,8 +235,8 @@
 		9D09289629E9E126008C8119 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				9DBAAFC829F5BA000001DD32 /* Views */,
 				9D6E4EBE29EDCBB9004C60AD /* GameRouter.swift */,
-				9D6E4EBF29EDCBB9004C60AD /* GameViewController.swift */,
 				9D6E4EC029EDCBB9004C60AD /* GameBuilder.swift */,
 				9D6E4EC129EDCBB9004C60AD /* GameInteractor.swift */,
 			);
@@ -224,8 +250,6 @@
 				9D09290329EC056A008C8119 /* Root */,
 				9D09289629E9E126008C8119 /* Game */,
 				9DFB658D29E843B900CADAEF /* MainScreen */,
-				9DB8888029E825400068590A /* Bar */,
-				9D442D6329E3044A00A2482D /* Chat */,
 			);
 			path = RIBs;
 			sourceTree = "<group>";
@@ -371,6 +395,7 @@
 		9D6E4EA329ED713F004C60AD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9DBAAFB229F33E300001DD32 /* Models */,
 				9D6E4EA429ED7157004C60AD /* AuthManager.swift */,
 				9D5AE2F929EE249B0016BB80 /* UserManager.swift */,
 				9D5AE2FB29EE2BC80016BB80 /* GameManager.swift */,
@@ -468,6 +493,81 @@
 			path = Bar;
 			sourceTree = "<group>";
 		};
+		9DBAAFB229F33E300001DD32 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAAFB329F33E3D0001DD32 /* User.swift */,
+				9DBAAFBF29F5A5300001DD32 /* GameInfo.swift */,
+				9DBAAFC129F5A5770001DD32 /* Room.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DBAAFB829F348870001DD32 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAAFB929F3491C0001DD32 /* ViewModels */,
+				9D442D6329E3044A00A2482D /* Chat */,
+				9D6E4EC729EDCFC7004C60AD /* MainViewController.swift */,
+				9DFB658E29E8441300CADAEF /* MainScreenViewController.swift */,
+				9DBAAFD329F5DFF10001DD32 /* FriendsViewController.swift */,
+				9DBAAFD529F5E28C0001DD32 /* FindFriendsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DBAAFB929F3491C0001DD32 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAAFBA29F349390001DD32 /* MainScreenViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9DBAAFBC29F59AF30001DD32 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAAFBD29F59B200001DD32 /* Observable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		9DBAAFC329F5AB5C0001DD32 /* Locking */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAAFC429F5AB750001DD32 /* Locking+Extension.swift */,
+				9DBAAFC629F5ABA30001DD32 /* Locking.swift */,
+			);
+			path = Locking;
+			sourceTree = "<group>";
+		};
+		9DBAAFC829F5BA000001DD32 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAAFD229F5D40B0001DD32 /* ViewModels */,
+				9D6E4EBF29EDCBB9004C60AD /* GameViewController.swift */,
+				9DBAAFC929F5BA500001DD32 /* WaitingScreenViewController.swift */,
+				9DBAAFCE29F5CCA50001DD32 /* ResultsViewController.swift */,
+				9DBAAFD029F5D1620001DD32 /* ChooseStartRoomViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DBAAFCB29F5C4660001DD32 /* Int */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAAFCC29F5C4750001DD32 /* Int+Extension.swift */,
+			);
+			path = Int;
+			sourceTree = "<group>";
+		};
+		9DBAAFD229F5D40B0001DD32 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		9DF637D02964B986000BBBF2 = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +631,7 @@
 		9DF638462964D092000BBBF2 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				9DBAAFBC29F59AF30001DD32 /* Observable */,
 				9DF638482964D0A7000BBBF2 /* Views */,
 				9DF638472964D09F000BBBF2 /* Extensions */,
 			);
@@ -540,6 +641,8 @@
 		9DF638472964D09F000BBBF2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9DBAAFCB29F5C4660001DD32 /* Int */,
+				9DBAAFC329F5AB5C0001DD32 /* Locking */,
 				9D6E4ECE29EDCFF7004C60AD /* UIImage */,
 				9DF638552964D4F1000BBBF2 /* UIColor */,
 				9DF638522964D348000BBBF2 /* UIVIew */,
@@ -602,12 +705,11 @@
 		9DFB658D29E843B900CADAEF /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				9DFB658E29E8441300CADAEF /* MainScreenViewController.swift */,
+				9DB8888029E825400068590A /* Bar */,
+				9DBAAFB829F348870001DD32 /* Views */,
 				9D6E4EC629EDCFC7004C60AD /* MainRouter.swift */,
-				9D6E4EC729EDCFC7004C60AD /* MainViewController.swift */,
 				9D6E4EC829EDCFC7004C60AD /* MainBuilder.swift */,
 				9D6E4EC929EDCFC7004C60AD /* MainInteractor.swift */,
-				9D5AE36029EED9D90016BB80 /* QrViewController.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -753,6 +855,7 @@
 				9D6E4EA729ED863B004C60AD /* RequestError.swift in Sources */,
 				9DB8882729E5FDCA0068590A /* iMessageChatChannelListViewController.swift in Sources */,
 				9DB8882B29E5FDCA0068590A /* iMessageChatChannelHeaderView.swift in Sources */,
+				9DBAAFCD29F5C4750001DD32 /* Int+Extension.swift in Sources */,
 				9D10C6A029EC444A00B27D9B /* auth_service.pb.swift in Sources */,
 				9DF637E12964B986000BBBF2 /* RegistrationViewController.swift in Sources */,
 				9D6E4E5629ED5BF1004C60AD /* UserDataKeeper.swift in Sources */,
@@ -764,23 +867,28 @@
 				9DB8888229E825EA0068590A /* BarScreenViewController.swift in Sources */,
 				9D6E4EA929ED8AD3004C60AD /* Responses.swift in Sources */,
 				9D10C6A229EC444A00B27D9B /* auth_service.grpc.swift in Sources */,
+				9DBAAFBE29F59B200001DD32 /* Observable.swift in Sources */,
 				9D09289C29E9E4EE008C8119 /* RoomsProgressView.swift in Sources */,
 				9D6E4ECA29EDCFC7004C60AD /* MainRouter.swift in Sources */,
 				9D0928B329EAE306008C8119 /* AuthService.swift in Sources */,
 				9D5AE30129EE30B10016BB80 /* StreamManager.swift in Sources */,
 				9D10C69E29EC444900B27D9B /* user_service.grpc.swift in Sources */,
+				9DBAAFD429F5DFF10001DD32 /* FriendsViewController.swift in Sources */,
 				9D6E4DF229EC8343004C60AD /* VoidResult.swift in Sources */,
 				9D10C69C29EC444900B27D9B /* game_server.grpc.swift in Sources */,
+				9DBAAFCF29F5CCA50001DD32 /* ResultsViewController.swift in Sources */,
 				9D09289F29EA00DD008C8119 /* GameBottomRoomsView.swift in Sources */,
 				9D5AE2FF29EE2EC10016BB80 /* FriendsManager.swift in Sources */,
 				9D6E4EB129ED9123004C60AD /* AuthorizationInteractor.swift in Sources */,
 				9DB8882929E5FDCA0068590A /* iMessageComposerVC.swift in Sources */,
 				9D6E4EAE29ED9123004C60AD /* AuthorizationRouter.swift in Sources */,
+				9DBAAFD129F5D1620001DD32 /* ChooseStartRoomViewController.swift in Sources */,
+				9DBAAFBB29F349390001DD32 /* MainScreenViewModel.swift in Sources */,
 				9D5AE2FC29EE2BC80016BB80 /* GameManager.swift in Sources */,
 				9DB8881729E5B19B0068590A /* SecureStorage+PropertyWraper.swift in Sources */,
 				9D6E4EA529ED7157004C60AD /* AuthManager.swift in Sources */,
 				9D6E4E5329ED5321004C60AD /* RootInteractor.swift in Sources */,
-				9D5AE36129EED9D90016BB80 /* QrViewController.swift in Sources */,
+				9DBAAFC229F5A5770001DD32 /* Room.swift in Sources */,
 				9DB8882829E5FDCA0068590A /* iMessageChatMessageContentView.swift in Sources */,
 				9D47879F2972C9A5003A2CAE /* OTPViewController.swift in Sources */,
 				9D10C64229EC16C100B27D9B /* AppComponent.swift in Sources */,
@@ -794,6 +902,7 @@
 				9D6E4EC229EDCBB9004C60AD /* GameRouter.swift in Sources */,
 				9DF637DF2964B986000BBBF2 /* SceneDelegate.swift in Sources */,
 				9D10C69B29EC444900B27D9B /* user_service.pb.swift in Sources */,
+				9DBAAFCA29F5BA500001DD32 /* WaitingScreenViewController.swift in Sources */,
 				9D6E4DF529EC9D3F004C60AD /* UserService.swift in Sources */,
 				9D6E4ECD29EDCFC7004C60AD /* MainInteractor.swift in Sources */,
 				9D10C69929EC444900B27D9B /* friend_service.pb.swift in Sources */,
@@ -811,6 +920,8 @@
 				9DF638512964D15D000BBBF2 /* CAGradientLayer+Extensions.swift in Sources */,
 				9DF638572964D506000BBBF2 /* UIColor+Extensions.swift in Sources */,
 				9DFB658F29E8441300CADAEF /* MainScreenViewController.swift in Sources */,
+				9DBAAFB429F33E3D0001DD32 /* User.swift in Sources */,
+				9DBAAFC029F5A5300001DD32 /* GameInfo.swift in Sources */,
 				9D6E4EB029ED9123004C60AD /* AuthorizationBuilder.swift in Sources */,
 				9D5AE2FA29EE249B0016BB80 /* UserManager.swift in Sources */,
 				9D5AE2F829EE1DDE0016BB80 /* FriendsService.swift in Sources */,
@@ -818,12 +929,15 @@
 				9DF6384A2964D0D6000BBBF2 /* GradientView.swift in Sources */,
 				9D6E4ECC29EDCFC7004C60AD /* MainBuilder.swift in Sources */,
 				9DF6384E2964D105000BBBF2 /* Gradient.swift in Sources */,
+				9DBAAFC529F5AB750001DD32 /* Locking+Extension.swift in Sources */,
 				9DB8881029E5AC6D0068590A /* SecureStorage.swift in Sources */,
 				9DB8882C29E5FDCA0068590A /* iMessageCellSeparatorView.swift in Sources */,
 				9DB8882E29E5FDCA0068590A /* iMessageChatChannelListItemView.swift in Sources */,
+				9DBAAFD629F5E28C0001DD32 /* FindFriendsViewController.swift in Sources */,
 				9DB8882D29E5FDCA0068590A /* iMessageChatMessageListViewController.swift in Sources */,
 				9D10C69F29EC444900B27D9B /* room.pb.swift in Sources */,
 				9DF638542964D363000BBBF2 /* UIView+Extensions.swift in Sources */,
+				9DBAAFC729F5ABA30001DD32 /* Locking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

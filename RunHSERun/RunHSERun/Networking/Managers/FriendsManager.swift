@@ -66,6 +66,3 @@ final class FriendsManager {
     }
 
 }
-
-
-

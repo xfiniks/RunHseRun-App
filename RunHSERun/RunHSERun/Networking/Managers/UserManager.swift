@@ -28,7 +28,7 @@ final class UserManager {
         }
     }
 
-    func makeGetMeRequest(completion: @escaping (Result<Run_Hse_Run_User, Error>) -> Void) {
+    func makeGetMeRequest(completion: @escaping (Result<User, Error>) -> Void) {
         guard let token = secureSettingsKeeper.authToken else {
             completion(.failure(TokenError.tokenIsNil))
             return
@@ -37,7 +37,7 @@ final class UserManager {
         userService.makeGetMeRequest(token: token) { result in
             switch result {
             case .success(let user):
-                completion(.success(user))
+                completion(.success(User(networkUser: user)))
 
             case .failure(let error):
                 completion(.failure(error))
@@ -65,7 +65,7 @@ final class UserManager {
         }
     }
 
-    func makeGetLeaderboardRequest(completion: @escaping (Result<Run_Hse_Run_Users, Error>) -> Void) {
+    func makeGetLeaderboardRequest(completion: @escaping (Result<[User], Error>) -> Void) {
         guard let token = secureSettingsKeeper.authToken else {
             completion(.failure(TokenError.tokenIsNil))
             return
@@ -74,14 +74,17 @@ final class UserManager {
         userService.makeGetLeaderboardRequest(token: token) { result in
             switch result {
             case .success(let response):
-                completion(.success(response))
+                let users = response.users.map { user in
+                    User(networkUser: user)
+                }
+                completion(.success(users))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
 
-    func makeGetUserByIdRequest(id: Int, completion: @escaping (Result<Run_Hse_Run_User, Error>) -> Void) {
+    func makeGetUserByIdRequest(id: Int, completion: @escaping (Result<User, Error>) -> Void) {
         guard let token = secureSettingsKeeper.authToken else {
             completion(.failure(TokenError.tokenIsNil))
             return
@@ -93,7 +96,7 @@ final class UserManager {
         userService.makeGetUserByIdRequest(with: req, token: token) { result in
             switch result {
             case .success(let user):
-                completion(.success(user))
+                completion(.success(User(networkUser: user)))
 
             case .failure(let error):
                 completion(.failure(error))
@@ -101,7 +104,7 @@ final class UserManager {
         }
     }
 
-    func makeGetUserByNicknameRequest(nickname: String, completion: @escaping (Result<Run_Hse_Run_Users, Error>) -> Void) {
+    func makeGetUserByNicknameRequest(nickname: String, completion: @escaping (Result<[User], Error>) -> Void) {
         guard let token = secureSettingsKeeper.authToken else {
             completion(.failure(TokenError.tokenIsNil))
             return
@@ -113,6 +116,9 @@ final class UserManager {
         userService.makeGetUserByNicknameRequest(with: req, token: token) { result in
             switch result {
             case .success(let users):
+                let users = users.users.map { user in
+                    User(networkUser: user)
+                }
                 completion(.success(users))
 
             case .failure(let error):
@@ -123,4 +129,3 @@ final class UserManager {
     }
 
 }
-

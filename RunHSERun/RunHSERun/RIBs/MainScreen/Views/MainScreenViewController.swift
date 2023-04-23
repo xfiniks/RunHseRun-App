@@ -5,7 +5,6 @@ protocol MainScreenPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
-    func startGame()
 }
 
 final class MainScreenViewController: UIViewController {
@@ -34,6 +33,16 @@ final class MainScreenViewController: UIViewController {
 
     }
 
+    var viewModel: MainScreenViewModel? {
+        didSet {
+            guard isViewLoaded, viewModel != oldValue else {
+                return
+            }
+
+            updateUI()
+        }
+    }
+
     var listener: MainScreenPresentableListener?
 
     private var avatarImageView: UIImageView!
@@ -58,8 +67,6 @@ final class MainScreenViewController: UIViewController {
     private var startGamebutton: LoadingButton!
     private var startGameWithFriendButton: LoadingButton!
 
-    var service = UserService(grpcChannel: GRPCChannelProvider().grpcChannel)
-
     override func loadView() {
         view = UIView()
         addSubviews()
@@ -77,6 +84,29 @@ final class MainScreenViewController: UIViewController {
         configurQrCodeButton()
         configureSettingsButton()
         configureLeaderboard()
+
+        updateUI()
+    }
+
+    private func updateUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        avatarImageView.image = viewModel.user.image
+        nicknameLabel.text = viewModel.user.nickname
+
+        firstPlaceImageView.image = viewModel.leaderboardUsers[0].image
+        firstPlaceResultLabel.text = String(viewModel.leaderboardUsers[0].score)
+        firstPlaceNicknameLabel.text = viewModel.leaderboardUsers[0].nickname
+
+        secondPlaceImageView.image = viewModel.leaderboardUsers[1].image
+        secondPlaceResultLabel.text = String(viewModel.leaderboardUsers[1].score)
+        secondPlaceNicknameLabel.text = viewModel.leaderboardUsers[1].nickname
+
+        thirdPlaceImageView.image = viewModel.leaderboardUsers[2].image
+        thirdPlaceResultLabel.text = String(viewModel.leaderboardUsers[2].score)
+        thirdPlaceNicknameLabel.text = viewModel.leaderboardUsers[2].nickname
     }
 
     private func configureAvatarImageView() {
@@ -103,9 +133,7 @@ final class MainScreenViewController: UIViewController {
 
     @objc
     private func moveToQrScreen() {
-        let vc = QrViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+
     }
 
     private func configurQrCodeButton() {
@@ -132,42 +160,7 @@ final class MainScreenViewController: UIViewController {
 
     @objc
     private func makeRequest() {
-//        var req = Run_Hse_Run_ChangeImageRequest()
-//        print(1111)
-//        guard let image = UIImage(named: "imagetest")
-//        else {
-//            return
-//        }
-//
-//        let smallerImage = image.scalePreservingAspectRatio(targetSize: CGSize(width: 150, height: 150))
-//        guard let data = image.pngData() else {
-//            print("fail")
-//            return
-//        }
-//
-//        let encodedImage = data.base64EncodedString()
-//        print(encodedImage.count)
-//        req.newImage = encodedImage
-//
-//        service.makeChangeImageRequest(with: req) { result in
-//            switch result {
-//            case .success:
-//                print("success")
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//
-//        service.makeGetMeRequest() { [weak self] result in
-//            switch result {
-//            case .success(let response):
-//                print(response.image.count)
-//                let img = UIImage(data: Data(base64Encoded: response.image)!)
-//                self?.avatarImageView.image = img
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+
     }
 
     private func configureLeaderboard() {
@@ -405,6 +398,30 @@ final class MainScreenViewController: UIViewController {
             startGameWithFriendButton.heightAnchor.constraint(equalToConstant: 60),
             startGameWithFriendButton.widthAnchor.constraint(equalToConstant: 360),
         ])
+    }
+
+}
+
+extension MainScreenViewController: MainScreenPresentable {
+
+    func setViewModel(user: User?, leaderboardUsers: [User]) {
+        var presentingUser: User = User.default
+        var presentingLeaderboardUsers: [User] = []
+
+        if let user = user {
+            presentingUser = user
+        }
+
+        presentingLeaderboardUsers = leaderboardUsers
+        presentingLeaderboardUsers.sort { firstUser, secondUser in
+            firstUser.score > secondUser.score
+        }
+
+        for _ in (0..<3 - presentingLeaderboardUsers.count) {
+            presentingLeaderboardUsers.append(User.default)
+        }
+
+        self.viewModel = .init(user: presentingUser, leaderboardUsers: presentingLeaderboardUsers)
     }
 
 }

@@ -10,6 +10,9 @@ import RIBs
 protocol GameDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
+
+    var streamManager: StreamManager { get }
+    var gameManager: GameManager { get }
 }
 
 final class GameComponent: Component<GameDependency> {
