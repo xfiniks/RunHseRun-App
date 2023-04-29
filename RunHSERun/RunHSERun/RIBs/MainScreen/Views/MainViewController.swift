@@ -12,13 +12,18 @@ protocol MainPresentableListener: AnyObject {
 final class MainViewController: FloatingTabBarController, MainPresentable, MainViewControllable {
 
     weak var listener: MainPresentableListener?
+    var friendsViewController: FriendsViewController?
+    var mainScreenViewController: MainScreenViewController?
+    var iMessageChatChannelListViewController: iMessageChatChannelListViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let viewControllers = [RegistrationViewController(), MainScreenViewController(), UINavigationController(
-            rootViewController: iMessageChatChannelListViewController()
-        )]
+        let viewControllers = [
+            friendsViewController!,
+            mainScreenViewController!,
+            UINavigationController(rootViewController: iMessageChatChannelListViewController!)
+        ]
         let selected = [UIImage(named: "Friends" + "_Large")!,
                         UIImage(named: "Game" + "_Large")!,
                         UIImage(named: "Chat" + "_Large")!]

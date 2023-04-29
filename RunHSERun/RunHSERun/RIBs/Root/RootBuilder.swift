@@ -6,6 +6,11 @@ protocol RootDependency: Dependency {
 
     var secureSettingsKeeper: SecureSettingsKeeper { get }
     var authManager: AuthManager { get }
+    var userManager: UserManager { get }
+    var friendsManager: FriendsManager { get }
+    var userDataKeeper: UserDataKeeper { get }
+    var streamManager: StreamManager { get }
+    var gameManager: GameManager { get }
 }
 
 final class RootComponent: Component<RootDependency> {
@@ -45,7 +50,8 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
                                         secureSettingsKeeper: component.secureSettingsKeeper)
 
         let authorizationBuilder = AuthorizationBuilder(dependency: component)
+        let mainBuilder = MainBuilder(dependency: component)
 
-        return RootRouter(interactor: interactor, viewController: viewController, authorizationBuilder: authorizationBuilder)
+        return RootRouter(interactor: interactor, viewController: viewController, authorizationBuilder: authorizationBuilder, mainBuiler: mainBuilder)
     }
 }

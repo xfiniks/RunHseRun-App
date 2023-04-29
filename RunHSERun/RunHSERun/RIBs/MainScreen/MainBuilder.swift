@@ -5,7 +5,10 @@ protocol MainDependency: Dependency {
     // created by this RIB.
 
     var userManager: UserManager { get }
+    var friendsManager: FriendsManager { get }
     var userDataKeeper: UserDataKeeper { get }
+    var streamManager: StreamManager { get }
+    var gameManager: GameManager { get }
 }
 
 final class MainComponent: Component<MainDependency> {
@@ -14,6 +17,9 @@ final class MainComponent: Component<MainDependency> {
 
     var userManager: UserManager {
         dependency.userManager
+    }
+    var friendsManager: FriendsManager {
+        dependency.friendsManager
     }
     var userDataKeeper: UserDataKeeper {
         dependency.userDataKeeper
@@ -34,13 +40,28 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
 
     func build(withListener listener: MainListener) -> MainRouting {
         let component = MainComponent(dependency: dependency)
-        let viewController = MainViewController()
+
         let mainScreenViewController = MainScreenViewController()
+        let friendsViewController = FriendsViewController()
+        let iMessageChatChannelListViewController = iMessageChatChannelListViewController()
+        let viewController = MainViewController()
+        viewController.friendsViewController = friendsViewController
+        viewController.iMessageChatChannelListViewController = iMessageChatChannelListViewController
+        viewController.mainScreenViewController = mainScreenViewController
+
         let interactor = MainInteractor(presenter: viewController,
                                         mainScreenPresenter: mainScreenViewController,
+                                        friendsScreenPresentable: friendsViewController,
                                         userManager: component.userManager,
+                                        friendsManager: component.friendsManager,
                                         userDataKeeper: component.userDataKeeper)
         interactor.listener = listener
-        return MainRouter(interactor: interactor, viewController: viewController)
+
+        let gameBuilder = GameBuilder(dependency: component)
+
+        return MainRouter(interactor: interactor,
+                          viewController: viewController,
+                          mainScreenViewController: mainScreenViewController,
+                          gameBuilder: gameBuilder)
     }
 }

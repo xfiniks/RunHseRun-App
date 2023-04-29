@@ -3,23 +3,23 @@ import Vision
 import UIKit
 
 enum PredictResult {
-    case success(isLastAudience: Bool)
-    case badAudience
+    case success(isLastRoom: Bool)
+    case badRoom
 }
 
 final class TextPredictor {
 
-    private let audinces: [String]
-    private let currentStage: Int
+    private let rooms: [String]
     private let completion: (PredictResult) -> Void
+    private var currentStage: Int
 
-    init(audinces: [String], completion: @escaping (PredictResult) -> Void) {
-        self.audinces = audinces
+    init(rooms: [String], completion: @escaping (PredictResult) -> Void) {
+        self.rooms = rooms
         self.currentStage = 0
         self.completion = completion
     }
 
-    func makeRequest(userImage : UIImage, audience: String, complition: (PredictResult) -> Void) {
+    func makeRequest(userImage : UIImage) {
         let preprocessImage = scaleAndOrient(image: userImage)
 
         guard let cgImage = preprocessImage.cgImage else {
@@ -57,16 +57,17 @@ final class TextPredictor {
     private func processResults(_ recognizedStrings : [String]) {
         if !recognizedStrings.isEmpty {
             for number in recognizedStrings {
-                if number == audinces[currentStage] {
-                    if currentStage == audinces.count - 1 {
-                        completion(.success(isLastAudience: true))
+                if number == rooms[currentStage] {
+                    if currentStage == rooms.count - 1 {
+                        completion(.success(isLastRoom: true))
                     }
                     else {
-                        completion(.success(isLastAudience: false))
+                        completion(.success(isLastRoom: false))
+                        currentStage += 1
                     }
                 }
             }
-            completion(.badAudience)
+            completion(.badRoom)
         }
     }
 

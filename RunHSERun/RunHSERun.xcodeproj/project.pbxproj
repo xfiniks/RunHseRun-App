@@ -90,7 +90,12 @@
 		9DBAAFCF29F5CCA50001DD32 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFCE29F5CCA50001DD32 /* ResultsViewController.swift */; };
 		9DBAAFD129F5D1620001DD32 /* ChooseStartRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFD029F5D1620001DD32 /* ChooseStartRoomViewController.swift */; };
 		9DBAAFD429F5DFF10001DD32 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFD329F5DFF10001DD32 /* FriendsViewController.swift */; };
-		9DBAAFD629F5E28C0001DD32 /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAAFD529F5E28C0001DD32 /* FindFriendsViewController.swift */; };
+		9DBAB10429FC4EEA0001DD32 /* ChooseStartRoomScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAB10329FC4EEA0001DD32 /* ChooseStartRoomScreenViewModel.swift */; };
+		9DBAB10729FC537E0001DD32 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAB10629FC537E0001DD32 /* RoomCell.swift */; };
+		9DBAB10929FD21B70001DD32 /* FriendsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAB10829FD21B70001DD32 /* FriendsScreenViewModel.swift */; };
+		9DBAB10C29FD22C60001DD32 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAB10B29FD22C60001DD32 /* FriendCell.swift */; };
+		9DBAB10E29FD32F70001DD32 /* RootComponent+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAB10D29FD32F70001DD32 /* RootComponent+Main.swift */; };
+		9DBAB11029FD348D0001DD32 /* MainComponent+Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAB10F29FD348D0001DD32 /* MainComponent+Game.swift */; };
 		9DF637DD2964B986000BBBF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF637DC2964B986000BBBF2 /* AppDelegate.swift */; };
 		9DF637DF2964B986000BBBF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF637DE2964B986000BBBF2 /* SceneDelegate.swift */; };
 		9DF637E12964B986000BBBF2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF637E02964B986000BBBF2 /* RegistrationViewController.swift */; };
@@ -187,7 +192,12 @@
 		9DBAAFCE29F5CCA50001DD32 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		9DBAAFD029F5D1620001DD32 /* ChooseStartRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseStartRoomViewController.swift; sourceTree = "<group>"; };
 		9DBAAFD329F5DFF10001DD32 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		9DBAAFD529F5E28C0001DD32 /* FindFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsViewController.swift; sourceTree = "<group>"; };
+		9DBAB10329FC4EEA0001DD32 /* ChooseStartRoomScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseStartRoomScreenViewModel.swift; sourceTree = "<group>"; };
+		9DBAB10629FC537E0001DD32 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
+		9DBAB10829FD21B70001DD32 /* FriendsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScreenViewModel.swift; sourceTree = "<group>"; };
+		9DBAB10B29FD22C60001DD32 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		9DBAB10D29FD32F70001DD32 /* RootComponent+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+Main.swift"; sourceTree = "<group>"; };
+		9DBAB10F29FD348D0001DD32 /* MainComponent+Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainComponent+Game.swift"; sourceTree = "<group>"; };
 		9DF637D92964B986000BBBF2 /* RunHSERun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunHSERun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF637DC2964B986000BBBF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DF637DE2964B986000BBBF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -307,6 +317,7 @@
 				9D6E4E4E29ED5321004C60AD /* RootBuilder.swift */,
 				9D6E4E4F29ED5321004C60AD /* RootInteractor.swift */,
 				9D6E4EB329EDB313004C60AD /* RootComponent+Authorization.swift */,
+				9DBAB10D29FD32F70001DD32 /* RootComponent+Main.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -506,12 +517,12 @@
 		9DBAAFB829F348870001DD32 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9DBAB10A29FD22B10001DD32 /* Subviews */,
 				9DBAAFB929F3491C0001DD32 /* ViewModels */,
 				9D442D6329E3044A00A2482D /* Chat */,
 				9D6E4EC729EDCFC7004C60AD /* MainViewController.swift */,
 				9DFB658E29E8441300CADAEF /* MainScreenViewController.swift */,
 				9DBAAFD329F5DFF10001DD32 /* FriendsViewController.swift */,
-				9DBAAFD529F5E28C0001DD32 /* FindFriendsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -520,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				9DBAAFBA29F349390001DD32 /* MainScreenViewModel.swift */,
+				9DBAB10829FD21B70001DD32 /* FriendsScreenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -544,6 +556,7 @@
 		9DBAAFC829F5BA000001DD32 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9DBAB10529FC53680001DD32 /* Subviews */,
 				9DBAAFD229F5D40B0001DD32 /* ViewModels */,
 				9D6E4EBF29EDCBB9004C60AD /* GameViewController.swift */,
 				9DBAAFC929F5BA500001DD32 /* WaitingScreenViewController.swift */,
@@ -564,8 +577,25 @@
 		9DBAAFD229F5D40B0001DD32 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9DBAB10329FC4EEA0001DD32 /* ChooseStartRoomScreenViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9DBAB10529FC53680001DD32 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAB10629FC537E0001DD32 /* RoomCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		9DBAB10A29FD22B10001DD32 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAB10B29FD22C60001DD32 /* FriendCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		9DF637D02964B986000BBBF2 = {
@@ -710,6 +740,7 @@
 				9D6E4EC629EDCFC7004C60AD /* MainRouter.swift */,
 				9D6E4EC829EDCFC7004C60AD /* MainBuilder.swift */,
 				9D6E4EC929EDCFC7004C60AD /* MainInteractor.swift */,
+				9DBAB10F29FD348D0001DD32 /* MainComponent+Game.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -858,6 +889,7 @@
 				9DBAAFCD29F5C4750001DD32 /* Int+Extension.swift in Sources */,
 				9D10C6A029EC444A00B27D9B /* auth_service.pb.swift in Sources */,
 				9DF637E12964B986000BBBF2 /* RegistrationViewController.swift in Sources */,
+				9DBAB10729FC537E0001DD32 /* RoomCell.swift in Sources */,
 				9D6E4E5629ED5BF1004C60AD /* UserDataKeeper.swift in Sources */,
 				9D10C69A29EC444900B27D9B /* user.pb.swift in Sources */,
 				9D5AE2F629EE19A90016BB80 /* GameService.swift in Sources */,
@@ -887,9 +919,12 @@
 				9D5AE2FC29EE2BC80016BB80 /* GameManager.swift in Sources */,
 				9DB8881729E5B19B0068590A /* SecureStorage+PropertyWraper.swift in Sources */,
 				9D6E4EA529ED7157004C60AD /* AuthManager.swift in Sources */,
+				9DBAB11029FD348D0001DD32 /* MainComponent+Game.swift in Sources */,
 				9D6E4E5329ED5321004C60AD /* RootInteractor.swift in Sources */,
 				9DBAAFC229F5A5770001DD32 /* Room.swift in Sources */,
 				9DB8882829E5FDCA0068590A /* iMessageChatMessageContentView.swift in Sources */,
+				9DBAB10C29FD22C60001DD32 /* FriendCell.swift in Sources */,
+				9DBAB10E29FD32F70001DD32 /* RootComponent+Main.swift in Sources */,
 				9D47879F2972C9A5003A2CAE /* OTPViewController.swift in Sources */,
 				9D10C64229EC16C100B27D9B /* AppComponent.swift in Sources */,
 				9DB8881929E5B1F00068590A /* SecureSettingsKeeper.swift in Sources */,
@@ -897,6 +932,7 @@
 				9D10C6A129EC444A00B27D9B /* friend_service.grpc.swift in Sources */,
 				9DB8887F29E78ED60068590A /* NicknameChoosingViewController.swift in Sources */,
 				9D6E4E5029ED5321004C60AD /* RootRouter.swift in Sources */,
+				9DBAB10929FD21B70001DD32 /* FriendsScreenViewModel.swift in Sources */,
 				9D6E4ED229EDD59A004C60AD /* TextPredictor.swift in Sources */,
 				9D10C69D29EC444900B27D9B /* game_server.pb.swift in Sources */,
 				9D6E4EC229EDCBB9004C60AD /* GameRouter.swift in Sources */,
@@ -932,8 +968,8 @@
 				9DBAAFC529F5AB750001DD32 /* Locking+Extension.swift in Sources */,
 				9DB8881029E5AC6D0068590A /* SecureStorage.swift in Sources */,
 				9DB8882C29E5FDCA0068590A /* iMessageCellSeparatorView.swift in Sources */,
+				9DBAB10429FC4EEA0001DD32 /* ChooseStartRoomScreenViewModel.swift in Sources */,
 				9DB8882E29E5FDCA0068590A /* iMessageChatChannelListItemView.swift in Sources */,
-				9DBAAFD629F5E28C0001DD32 /* FindFriendsViewController.swift in Sources */,
 				9DB8882D29E5FDCA0068590A /* iMessageChatMessageListViewController.swift in Sources */,
 				9D10C69F29EC444900B27D9B /* room.pb.swift in Sources */,
 				9DF638542964D363000BBBF2 /* UIView+Extensions.swift in Sources */,

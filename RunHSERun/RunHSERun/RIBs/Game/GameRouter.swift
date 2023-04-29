@@ -1,10 +1,3 @@
-//
-//  GameRouter.swift
-//  RunHSERun
-//
-//  Created by Ivan Chernykh on 17.04.2023.
-//
-
 import RIBs
 
 protocol GameInteractable: Interactable {
@@ -14,13 +7,53 @@ protocol GameInteractable: Interactable {
 
 protocol GameViewControllable: ViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func replaceModal(viewController: ViewControllable?)
 }
 
-final class GameRouter: ViewableRouter<GameInteractable, GameViewControllable>, GameRouting {
+protocol ChooseStartRoomViewControllable: ViewControllable {
+    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func replaceModal(viewController: ViewControllable?)
+}
+
+protocol WaitingScreenViewControllable: ViewControllable {
+    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func replaceModal(viewController: ViewControllable?)
+}
+
+protocol ResultsViewControllable: ViewControllable {
+    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func replaceModal(viewController: ViewControllable?)
+}
+
+final class GameRouter: ViewableRouter<GameInteractable, ChooseStartRoomViewControllable>, GameRouting {
+
+    private let gameViewController: GameViewControllable
+    private let waitingScreenViewController: WaitingScreenViewControllable
+    private let resultsViewController: ResultsViewControllable
 
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: GameInteractable, viewController: GameViewControllable) {
+    init(interactor: GameInteractable,
+         viewController: ChooseStartRoomViewControllable,
+         gameViewController: GameViewControllable,
+         waitingScreenViewController: WaitingScreenViewControllable,
+         resultsViewController: ResultsViewControllable) {
+        self.gameViewController = gameViewController
+        self.waitingScreenViewController = waitingScreenViewController
+        self.resultsViewController = resultsViewController
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
+
+    func moveToWaiting() {
+        viewController.replaceModal(viewController: waitingScreenViewController)
+    }
+
+    func moveToGame() {
+        viewController.replaceModal(viewController: gameViewController)
+    }
+
+    func moveToResults() {
+        viewController.replaceModal(viewController: resultsViewController)
+    }
+
 }

@@ -1,10 +1,3 @@
-//
-//  GameBuilder.swift
-//  RunHSERun
-//
-//  Created by Ivan Chernykh on 17.04.2023.
-//
-
 import RIBs
 
 protocol GameDependency: Dependency {
@@ -18,6 +11,14 @@ protocol GameDependency: Dependency {
 final class GameComponent: Component<GameDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var streamManager: StreamManager {
+        dependency.streamManager
+    }
+
+    var gameManager: GameManager {
+        dependency.gameManager
+    }
+
 }
 
 // MARK: - Builder
@@ -34,9 +35,21 @@ final class GameBuilder: Builder<GameDependency>, GameBuildable {
 
     func build(withListener listener: GameListener) -> GameRouting {
         let component = GameComponent(dependency: dependency)
-        let viewController = GameViewController()
-        let interactor = GameInteractor(presenter: viewController)
+        let gameViewController = GameViewController()
+        let chooseStartRoomViewController = ChooseStartRoomViewController()
+        let resultsViewController = ResultsViewController()
+        let waitingScreenViewController = WaitingScreenViewController()
+        let interactor = GameInteractor(presenter: chooseStartRoomViewController,
+                                        waitingScreenPresenter: waitingScreenViewController,
+                                        gameScreenPresenter: gameViewController,
+                                        resultsPresenter: resultsViewController,
+                                        streamManager: component.streamManager,
+                                        gameManager: component.gameManager)
         interactor.listener = listener
-        return GameRouter(interactor: interactor, viewController: viewController)
+        return GameRouter(interactor: interactor,
+                          viewController: chooseStartRoomViewController,
+                          gameViewController: gameViewController,
+                          waitingScreenViewController: waitingScreenViewController,
+                          resultsViewController: resultsViewController)
     }
 }

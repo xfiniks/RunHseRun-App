@@ -1,10 +1,3 @@
-//
-//  RootComponent+Authorization.swift
-//  RunHSERun
-//
-//  Created by Ivan Chernykh on 17.04.2023.
-//
-
 import RIBs
 
 /// The dependencies needed from the parent scope of Root to provide for the Authorization scope.

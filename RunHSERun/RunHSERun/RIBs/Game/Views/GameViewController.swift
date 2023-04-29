@@ -7,13 +7,14 @@ protocol GamePresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    func validateImage(image: UIImage)
 }
 
-final class GameViewController: UIViewController, GamePresentable, GameViewControllable {
+final class GameViewController: UIViewController, GamePresentable {
 
     weak var listener: GamePresentableListener?
 
-    private var audienceLabel: UILabel!
+    private var roomDescriptionLabel: UILabel!
     private var roomLabel: UILabel!
     private var timeDescriptionLabel: UILabel!
     private var timeContainerView: UIView!
@@ -22,7 +23,6 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
     private var gameBottomRoomsView: GameBottomRoomsView!
     private var makePhotoButton: LoadingButton!
     private var imagePicker: ImagePicker!
-    private var textPredictor: TextPredictor!
 
     override func loadView() {
         view = UIView()
@@ -36,7 +36,7 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
     }
 
     private func configureUI() {
-        configureAudienceLabel()
+        configureRoomDescriptionLabel()
         configureRoomLabel()
         configureTimeDescriptionLabel()
         configureTimeContainerView()
@@ -46,14 +46,11 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
         configureMakePhotoButton()
 
         imagePicker = ImagePicker(presentationController: self, delegate: self)
-        textPredictor = TextPredictor(audinces: ["", "", ""]) { _ in
-            print(true)
-        }
     }
 
-    private func configureAudienceLabel() {
-        audienceLabel.text = "your next audience is"
-        audienceLabel.font = .systemFont(ofSize: 13)
+    private func configureRoomDescriptionLabel() {
+        roomDescriptionLabel.text = "your next room is"
+        roomDescriptionLabel.font = .systemFont(ofSize: 13)
     }
 
     private func configureRoomLabel() {
@@ -90,7 +87,7 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
 
     private func applyColorScheme() {
         view.backgroundColor = UIColor(named: "back")
-        audienceLabel.textColor = .white
+        roomDescriptionLabel.textColor = .white
         roomLabel.textColor = .white
         timeDescriptionLabel.textColor = .white
         timeContainerView.backgroundColor = .white
@@ -98,7 +95,7 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
     }
 
     private func addSubviews() {
-        audienceLabel = UILabel()
+        roomDescriptionLabel = UILabel()
         roomLabel = UILabel()
         timeDescriptionLabel = UILabel()
         timeContainerView = UIView()
@@ -110,7 +107,7 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
                                         font: UIFont.systemFont(ofSize: 15),
                                         bgColor: .white)
         [
-            audienceLabel,
+            roomDescriptionLabel,
             roomLabel,
             timeDescriptionLabel,
             timeContainerView,
@@ -125,7 +122,7 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
         timeContainerView.addSubview(timeLabel)
 
         view.addSubviews([
-            audienceLabel,
+            roomDescriptionLabel,
             roomLabel,
             timeDescriptionLabel,
             timeContainerView,
@@ -138,10 +135,10 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
             roomsProgressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             roomsProgressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 
-            audienceLabel.topAnchor.constraint(equalTo: roomsProgressView.bottomAnchor, constant: 50),
-            audienceLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            roomDescriptionLabel.topAnchor.constraint(equalTo: roomsProgressView.bottomAnchor, constant: 50),
+            roomDescriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            roomLabel.topAnchor.constraint(equalTo: audienceLabel.bottomAnchor),
+            roomLabel.topAnchor.constraint(equalTo: roomDescriptionLabel.bottomAnchor),
             roomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
             timeDescriptionLabel.topAnchor.constraint(equalTo: roomLabel.bottomAnchor, constant: 75),
@@ -173,6 +170,10 @@ final class GameViewController: UIViewController, GamePresentable, GameViewContr
 
         configureRoomsProgressView()
     }
+
+    func setViewModel(room: String) {
+        roomDescriptionLabel.text = room
+    }
     
 }
 
@@ -183,8 +184,29 @@ extension GameViewController: ImagePickerDelegate {
             return
         }
 
+        listener?.validateImage(image: image)
 
+    }
 
+}
+
+extension GameViewController: GameViewControllable {
+
+    func replaceModal(viewController: ViewControllable?) {
+        if presentedViewController != nil {
+            dismiss(animated: true) { [weak self] in
+                self?.presentTargetViewController(viewController: viewController)
+            }
+        } else {
+            presentTargetViewController(viewController: viewController)
+        }
+    }
+
+    private func presentTargetViewController(viewController: ViewControllable?) {
+        if let viewController = viewController {
+            viewController.uiviewController.modalPresentationStyle = .fullScreen
+            present(viewController.uiviewController, animated: true)
+        }
     }
 
 }

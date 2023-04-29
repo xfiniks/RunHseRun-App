@@ -2,7 +2,27 @@ import RIBs
 import UIKit
 import MHLoadingButton
 
-final class ChooseStartRoomViewController: UIViewController {
+protocol ChooseStartRoomPresentableListener: AnyObject {
+    // TODO: Declare properties and methods that the view controller can invoke to perform
+    // business logic, such as signIn(). This protocol is implemented by the corresponding
+    // interactor class.
+    func handleTapOnRoomButton(id: Int)
+    func handleBackButtonPressed()
+}
+
+final class ChooseStartRoomViewController: UIViewController, ViewControllable {
+
+    var viewModel: ChooseStartRoomScreenViewModel? {
+        didSet {
+            guard isViewLoaded, viewModel != oldValue else {
+                return
+            }
+
+            updateUI()
+        }
+    }
+
+    var listener: ChooseStartRoomPresentableListener?
 
     private var roomsTableView: UITableView!
     private var backButton: LoadingButton!
@@ -23,12 +43,27 @@ final class ChooseStartRoomViewController: UIViewController {
     }
 
     private func configureRoomsTableView() {
+        roomsTableView.separatorStyle = .none
+        roomsTableView.showsVerticalScrollIndicator = false
+        roomsTableView.showsHorizontalScrollIndicator = false
 
+        roomsTableView.register(RoomCell.self,
+                           forCellReuseIdentifier: RoomCell.reuseID)
+
+        roomsTableView.dataSource = self
+    }
+
+    private func configureBackButton() {
+        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
     }
 
     private func applyColorScheme() {
         view.backgroundColor = UIColor(named: "back")
         roomsTableView.backgroundColor = .white
+    }
+
+    private func updateUI() {
+
     }
 
     private func addSubviews() {
@@ -62,9 +97,75 @@ final class ChooseStartRoomViewController: UIViewController {
 
     @objc
     private func backButtonPressed() {
+        guard let listener = listener else {
+            return
+        }
 
+        listener.handleBackButtonPressed()
     }
 
 }
 
+extension ChooseStartRoomViewController: ChooseStartRoomScreenPresentable {
 
+    func setViewModel(rooms: [Room]) {
+        viewModel = .init(rooms: rooms)
+    }
+
+}
+
+extension ChooseStartRoomViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel else {
+            return 0
+        }
+
+        return viewModel.rooms.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let viewModel = viewModel else {
+            return UITableViewCell()
+        }
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RoomCell.reuseID, for: indexPath) as? RoomCell else {
+            return UITableViewCell()
+        }
+
+        cell.apply()
+
+        cell.completion = { [weak self] (id) in
+            guard let this = self else {
+                return
+            }
+
+            this.listener?.handleTapOnRoomButton(id: id)
+        }
+
+        cell.configure(with: viewModel.rooms[indexPath.row])
+        return cell
+    }
+
+}
+
+extension ChooseStartRoomViewController: ChooseStartRoomViewControllable {
+
+    func replaceModal(viewController: ViewControllable?) {
+        if presentedViewController != nil {
+            dismiss(animated: true) { [weak self] in
+                self?.presentTargetViewController(viewController: viewController)
+            }
+        } else {
+            presentTargetViewController(viewController: viewController)
+        }
+    }
+
+    private func presentTargetViewController(viewController: ViewControllable?) {
+        if let viewController = viewController {
+            viewController.uiviewController.modalPresentationStyle = .fullScreen
+            present(viewController.uiviewController, animated: true)
+        }
+    }
+
+}

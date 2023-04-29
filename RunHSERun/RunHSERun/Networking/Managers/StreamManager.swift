@@ -6,9 +6,17 @@ protocol StreamObserver: AnyObject {
 
 }
 
-final class StreamManager {
+protocol StreamManager {
+    
+    typealias Observer = StreamObserver
 
-    private typealias Observer = StreamObserver
+    func add(observer: Observer)
+    func remove(observer: Observer)
+
+    func startGame()
+}
+
+final class StreamManagerImpl: StreamManager {
 
     private let stream: GRPCStream
     private let secureSettingsKeeper: SecureSettingsKeeper
@@ -41,6 +49,14 @@ final class StreamManager {
                 self?.observers.notify { $0.processError(error: error) }
             }
         }
+    }
+
+    func add(observer: Observer) {
+        observers.add(observer)
+    }
+
+    func remove(observer: Observer) {
+        observers.remove(observer)
     }
 
 }

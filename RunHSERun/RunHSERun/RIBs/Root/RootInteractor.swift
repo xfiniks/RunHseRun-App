@@ -4,6 +4,7 @@ import RxSwift
 protocol RootRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func moveToRegistration()
+    func moveToMainScreen()
 }
 
 protocol RootPresentable: Presentable {
@@ -28,7 +29,7 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        router?.moveToRegistration()
+        checkUserState()
     }
 
     override func willResignActive() {
@@ -37,10 +38,16 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     }
 
     private func checkUserState() {
-        
+        guard let _ = secureSettingsKeeper.authToken else {
+            router?.moveToRegistration()
+            return
+        }
+
+        router?.moveToMainScreen()
     }
 
     func didFinish() {
         
     }
+    
 }

@@ -1,10 +1,12 @@
 import UIKit
 import MHLoadingButton
+import RIBs
 
 protocol MainScreenPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    func startGame()
 }
 
 final class MainScreenViewController: UIViewController {
@@ -154,8 +156,16 @@ final class MainScreenViewController: UIViewController {
             settingsButton.heightAnchor.constraint(equalToConstant: 30),
             settingsButton.widthAnchor.constraint(equalToConstant: 30)
         ])
+    }
 
+    private func configureStartGameButton() {
+        startGamebutton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
+        startGameWithFriendButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
+    }
 
+    @objc
+    private func startGameButtonTapped() {
+        listener?.startGame()
     }
 
     @objc
@@ -422,6 +432,27 @@ extension MainScreenViewController: MainScreenPresentable {
         }
 
         self.viewModel = .init(user: presentingUser, leaderboardUsers: presentingLeaderboardUsers)
+    }
+
+}
+
+extension MainScreenViewController: MainScreenViewControllable {
+
+    func replaceModal(viewController: ViewControllable?) {
+        if presentedViewController != nil {
+            dismiss(animated: true) { [weak self] in
+                self?.presentTargetViewController(viewController: viewController)
+            }
+        } else {
+            presentTargetViewController(viewController: viewController)
+        }
+    }
+
+    private func presentTargetViewController(viewController: ViewControllable?) {
+        if let viewController = viewController {
+            viewController.uiviewController.modalPresentationStyle = .fullScreen
+            present(viewController.uiviewController, animated: true)
+        }
     }
 
 }

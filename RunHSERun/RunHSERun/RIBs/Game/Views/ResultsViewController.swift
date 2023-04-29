@@ -2,7 +2,15 @@ import RIBs
 import UIKit
 import MHLoadingButton
 
-final class ResultsViewController: UIViewController {
+protocol ResultsScreenPresentableListener: AnyObject {
+    // TODO: Declare properties and methods that the view controller can invoke to perform
+    // business logic, such as signIn(). This protocol is implemented by the corresponding
+    // interactor class.
+}
+
+final class ResultsViewController: UIViewController, ViewControllable, ResultsScreenPresentable {
+
+    var listener: ResultsScreenPresentableListener?
 
     private var containerView: UIView!
     private var resultsLabel: UILabel!
@@ -82,3 +90,23 @@ final class ResultsViewController: UIViewController {
 
 }
 
+extension ResultsViewController: ResultsViewControllable {
+
+    func replaceModal(viewController: ViewControllable?) {
+        if presentedViewController != nil {
+            dismiss(animated: true) { [weak self] in
+                self?.presentTargetViewController(viewController: viewController)
+            }
+        } else {
+            presentTargetViewController(viewController: viewController)
+        }
+    }
+
+    private func presentTargetViewController(viewController: ViewControllable?) {
+        if let viewController = viewController {
+            viewController.uiviewController.modalPresentationStyle = .fullScreen
+            present(viewController.uiviewController, animated: true)
+        }
+    }
+
+}

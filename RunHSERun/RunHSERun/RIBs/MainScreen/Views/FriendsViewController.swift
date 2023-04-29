@@ -2,9 +2,28 @@ import RIBs
 import UIKit
 import MHLoadingButton
 
-final class FriendsViewController: UIViewController {
+protocol FriendsPresentableListener: AnyObject {
+    // TODO: Declare properties and methods that the view controller can invoke to perform
+    // business logic, such as signIn(). This protocol is implemented by the corresponding
+    // interactor class.
+    func handleTapOnUser(id: Int)
+}
 
-    private var friendsTableView: UITableView!
+final class FriendsViewController: UIViewController, FriendsPresentable {
+
+    var viewModel: FriendsScreenViewModel? {
+        didSet {
+            guard isViewLoaded, viewModel != oldValue else {
+                return
+            }
+
+            updateUI()
+        }
+    }
+
+    var listener: FriendsPresentableListener?
+
+    private var roomsTableView: UITableView!
     private var backButton: LoadingButton!
 
     override func loadView() {
@@ -19,33 +38,44 @@ final class FriendsViewController: UIViewController {
     }
 
     private func configureUI() {
-        configureFriendsTableView()
+        configureRoomsTableView()
     }
 
-    private func configureFriendsTableView() {
+    private func configureRoomsTableView() {
+        roomsTableView.separatorStyle = .none
+        roomsTableView.showsVerticalScrollIndicator = false
+        roomsTableView.showsHorizontalScrollIndicator = false
 
+        roomsTableView.register(FriendCell.self,
+                           forCellReuseIdentifier: FriendCell.reuseID)
+
+        roomsTableView.dataSource = self
     }
 
     private func applyColorScheme() {
         view.backgroundColor = UIColor(named: "back")
-        friendsTableView.backgroundColor = .white
+        roomsTableView.backgroundColor = .white
+    }
+
+    private func updateUI() {
+
     }
 
     private func addSubviews() {
-        friendsTableView = UITableView(frame: .zero, style: .grouped)
+        roomsTableView = UITableView(frame: .zero, style: .grouped)
         backButton = LoadingButton(text: "Back",
                                    textColor: .white,
                                    font: UIFont.systemFont(ofSize: 15),
                                    bgColor: UIColor(named: "back")!)
 
         [
-            friendsTableView,
+            roomsTableView,
             backButton
         ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
-        view.addSubviews([backButton, friendsTableView])
+        view.addSubviews([backButton, roomsTableView])
 
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -53,18 +83,50 @@ final class FriendsViewController: UIViewController {
             backButton.heightAnchor.constraint(equalToConstant: 50),
             backButton.widthAnchor.constraint(equalToConstant: 300),
 
-            friendsTableView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 40),
-            friendsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            friendsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            friendsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            roomsTableView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 40),
+            roomsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            roomsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            roomsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 
-    @objc
-    private func backButtonPressed() {
-
+    func setViewModel(users: [User]) {
+        viewModel = .init(users: users)
     }
 
 }
 
+extension FriendsViewController: UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel else {
+            return 0
+        }
+
+        return viewModel.users.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let viewModel = viewModel else {
+            return UITableViewCell()
+        }
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendCell.reuseID, for: indexPath) as? FriendCell else {
+            return UITableViewCell()
+        }
+
+        cell.apply()
+
+        cell.completion = { [weak self] (id) in
+            guard let this = self else {
+                return
+            }
+
+            this.listener?.handleTapOnUser(id: id)
+        }
+
+        cell.configure(with: viewModel.users[indexPath.row])
+        return cell
+    }
+
+}

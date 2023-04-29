@@ -1,4 +1,4 @@
-struct Room {
+struct Room: Equatable {
 
     let id: Int
     let code: String

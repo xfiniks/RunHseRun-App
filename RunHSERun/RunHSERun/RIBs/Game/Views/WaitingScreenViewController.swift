@@ -2,7 +2,15 @@ import RIBs
 import UIKit
 import MHLoadingButton
 
-final class WaitingScreenViewController: UIViewController {
+protocol WaitingScreenPresentableListener: AnyObject {
+    // TODO: Declare properties and methods that the view controller can invoke to perform
+    // business logic, such as signIn(). This protocol is implemented by the corresponding
+    // interactor class.
+}
+
+final class WaitingScreenViewController: UIViewController, ViewControllable, WaitingScreenPresentable {
+
+    var listener: WaitingScreenPresentableListener?
 
     private var containerView: UIView!
     private var timerDescriptionLabel: UILabel!
@@ -119,9 +127,25 @@ final class WaitingScreenViewController: UIViewController {
         timerLabel.text = timePassed.toTime
     }
 
-    @objc
-    private func backButtonPressed() {
+}
 
+extension WaitingScreenViewController: WaitingScreenViewControllable {
+
+    func replaceModal(viewController: ViewControllable?) {
+        if presentedViewController != nil {
+            dismiss(animated: true) { [weak self] in
+                self?.presentTargetViewController(viewController: viewController)
+            }
+        } else {
+            presentTargetViewController(viewController: viewController)
+        }
+    }
+
+    private func presentTargetViewController(viewController: ViewControllable?) {
+        if let viewController = viewController {
+            viewController.uiviewController.modalPresentationStyle = .fullScreen
+            present(viewController.uiviewController, animated: true)
+        }
     }
 
 }

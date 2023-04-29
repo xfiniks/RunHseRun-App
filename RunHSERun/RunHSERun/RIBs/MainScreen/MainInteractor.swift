@@ -1,8 +1,8 @@
 import RIBs
-import RxSwift
 
 protocol MainRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func attachGameRIB()
 }
 
 protocol MainPresentable: Presentable {
@@ -17,6 +17,13 @@ protocol MainScreenPresentable: Presentable {
     func setViewModel(user: User?, leaderboardUsers: [User])
 }
 
+protocol FriendsPresentable: Presentable {
+    var listener: FriendsPresentableListener? { get set }
+    // TODO: Declare methods the interactor can invoke the presenter to present data.
+
+    func setViewModel(users: [User])
+}
+
 protocol MainListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
@@ -24,6 +31,7 @@ protocol MainListener: AnyObject {
 final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteractable, MainPresentableListener {
 
     private let userManager: UserManager
+    private let friendsManager: FriendsManager
     private let userDataKeeper: UserDataKeeper
 
     private var userData: User? {
@@ -39,16 +47,24 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     }
 
     private let mainScreenPresenter: MainScreenPresentable
+    private let friendsScreenPresentable: FriendsPresentable
 
     weak var router: MainRouting?
     weak var listener: MainListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    init(presenter: MainPresentable, mainScreenPresenter: MainScreenPresentable, userManager: UserManager, userDataKeeper: UserDataKeeper) {
+    init(presenter: MainPresentable,
+         mainScreenPresenter: MainScreenPresentable,
+         friendsScreenPresentable: FriendsPresentable,
+         userManager: UserManager,
+         friendsManager: FriendsManager,
+         userDataKeeper: UserDataKeeper) {
         self.userManager = userManager
+        self.friendsManager = friendsManager
         self.userDataKeeper = userDataKeeper
         self.mainScreenPresenter = mainScreenPresenter
+        self.friendsScreenPresentable = friendsScreenPresentable
 
         super.init(presenter: presenter)
         presenter.listener = self
@@ -89,12 +105,33 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
         }
     }
 
+    private func fetchFriends() {
+        friendsManager.makeGetFriendsRequest { [weak self] result in
+            switch result {
+            case .success(let networkUsers):
+                let users = networkUsers.users.map { User(networkUser: $0) }
+                self?.friendsScreenPresentable.setViewModel(users: users)
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
     private func updateUI() {
         mainScreenPresenter.setViewModel(user: userData, leaderboardUsers: leaderbordUsers)
+    }
+
+    func didFinish() {
+        
     }
 
 }
 
 extension MainInteractor: MainScreenPresentableListener {
+
+    func startGame() {
+        router?.attachGameRIB()
+    }
 
 }
