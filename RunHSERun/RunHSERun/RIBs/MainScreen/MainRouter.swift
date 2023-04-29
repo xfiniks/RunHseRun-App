@@ -17,14 +17,14 @@ protocol MainScreenViewControllable: ViewControllable {
 
 final class MainRouter: ViewableRouter<MainInteractable, MainViewControllable>, MainRouting {
 
-    private let gameBuilder: GameBuilder
+    private let gameBuilder: GameBuildable
     private let mainScreenViewController: MainScreenViewControllable
 
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: MainInteractable,
          viewController: MainViewControllable,
          mainScreenViewController: MainScreenViewController,
-         gameBuilder: GameBuilder) {
+         gameBuilder: GameBuildable) {
         self.gameBuilder = gameBuilder
         self.mainScreenViewController = mainScreenViewController
         super.init(interactor: interactor, viewController: viewController)

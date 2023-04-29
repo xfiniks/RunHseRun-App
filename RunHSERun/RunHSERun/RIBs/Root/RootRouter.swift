@@ -11,14 +11,14 @@ protocol RootViewControllable: ViewControllable {
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable> {
 
-    private let authorizationBuilder: AuthorizationBuilder
-    private let mainBuilder: MainBuilder
+    private let authorizationBuilder: AuthorizationBuildable
+    private let mainBuilder: MainBuildable
 
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
          viewController: RootViewControllable,
-         authorizationBuilder: AuthorizationBuilder,
-         mainBuiler: MainBuilder) {
+         authorizationBuilder: AuthorizationBuildable,
+         mainBuiler: MainBuildable) {
         self.authorizationBuilder = authorizationBuilder
         self.mainBuilder = mainBuiler
 
