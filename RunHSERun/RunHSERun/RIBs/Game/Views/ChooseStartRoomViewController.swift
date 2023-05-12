@@ -10,7 +10,7 @@ protocol ChooseStartRoomPresentableListener: AnyObject {
     func handleBackButtonPressed()
 }
 
-final class ChooseStartRoomViewController: UIViewController, ViewControllable {
+final class ChooseStartRoomViewController: UIViewController {
 
     var viewModel: ChooseStartRoomScreenViewModel? {
         didSet {

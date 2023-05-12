@@ -6,7 +6,6 @@ protocol MainDependency: Dependency {
 
     var userManager: UserManager { get }
     var friendsManager: FriendsManager { get }
-    var userDataKeeper: UserDataKeeper { get }
     var streamManager: StreamManager { get }
     var gameManager: GameManager { get }
 }
@@ -20,9 +19,6 @@ final class MainComponent: Component<MainDependency> {
     }
     var friendsManager: FriendsManager {
         dependency.friendsManager
-    }
-    var userDataKeeper: UserDataKeeper {
-        dependency.userDataKeeper
     }
 }
 
@@ -53,8 +49,7 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
                                         mainScreenPresenter: mainScreenViewController,
                                         friendsScreenPresentable: friendsViewController,
                                         userManager: component.userManager,
-                                        friendsManager: component.friendsManager,
-                                        userDataKeeper: component.userDataKeeper)
+                                        friendsManager: component.friendsManager)
         interactor.listener = listener
 
         let gameBuilder = GameBuilder(dependency: component)

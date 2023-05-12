@@ -61,6 +61,7 @@
 		9D6E4ECD29EDCFC7004C60AD /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4EC929EDCFC7004C60AD /* MainInteractor.swift */; };
 		9D6E4ED029EDD00B004C60AD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4ECF29EDD00B004C60AD /* UIImage+Extension.swift */; };
 		9D6E4ED229EDD59A004C60AD /* TextPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4ED129EDD59A004C60AD /* TextPredictor.swift */; };
+		9D9BDF8E2A0ED27800A1A1BB /* RunHSERunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDF8D2A0ED27800A1A1BB /* RunHSERunTests.swift */; };
 		9DB8881029E5AC6D0068590A /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8880F29E5AC6D0068590A /* SecureStorage.swift */; };
 		9DB8881429E5AEE60068590A /* SecureStorage+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8881329E5AEE60068590A /* SecureStorage+Token.swift */; };
 		9DB8881729E5B19B0068590A /* SecureStorage+PropertyWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8881629E5B19B0068590A /* SecureStorage+PropertyWraper.swift */; };
@@ -109,6 +110,16 @@
 		9DFB658F29E8441300CADAEF /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB658E29E8441300CADAEF /* MainScreenViewController.swift */; };
 		E62610F0203374966E45061C /* Pods_RunHSERun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A8C297AF1579481160024E /* Pods_RunHSERun.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9D9BDF8F2A0ED27800A1A1BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DF637D12964B986000BBBF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DF637D82964B986000BBBF2;
+			remoteInfo = RunHSERun;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		42125A44BF596AA9A38C63BA /* Pods-RunHSERun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunHSERun.release.xcconfig"; path = "Target Support Files/Pods-RunHSERun/Pods-RunHSERun.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +174,8 @@
 		9D6E4EC929EDCFC7004C60AD /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		9D6E4ECF29EDD00B004C60AD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		9D6E4ED129EDD59A004C60AD /* TextPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPredictor.swift; sourceTree = "<group>"; };
+		9D9BDF8B2A0ED27700A1A1BB /* RunHSERunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunHSERunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9BDF8D2A0ED27800A1A1BB /* RunHSERunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunHSERunTests.swift; sourceTree = "<group>"; };
 		9DB8880F29E5AC6D0068590A /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		9DB8881329E5AEE60068590A /* SecureStorage+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureStorage+Token.swift"; sourceTree = "<group>"; };
 		9DB8881629E5B19B0068590A /* SecureStorage+PropertyWraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureStorage+PropertyWraper.swift"; sourceTree = "<group>"; };
@@ -214,6 +227,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9D9BDF882A0ED27700A1A1BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DF637D62964B986000BBBF2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,9 +303,9 @@
 		9D0928A029EAD700008C8119 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9D6E4DF629EC9E2E004C60AD /* GRPCChannelProvider */,
 				9D6E4EB529EDC0FE004C60AD /* Streaming */,
 				9D6E4EA329ED713F004C60AD /* Managers */,
-				9D6E4DF629EC9E2E004C60AD /* GRPCChannelProvider */,
 				9D6E4DF329EC9D2E004C60AD /* Services */,
 				9D6E4DF029EC8324004C60AD /* Helpers */,
 			);
@@ -440,6 +460,14 @@
 				9D6E4ECF29EDD00B004C60AD /* UIImage+Extension.swift */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		9D9BDF8C2A0ED27800A1A1BB /* RunHSERunTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDF8D2A0ED27800A1A1BB /* RunHSERunTests.swift */,
+			);
+			path = RunHSERunTests;
 			sourceTree = "<group>";
 		};
 		9DB8880E29E5AC110068590A /* Services */ = {
@@ -602,6 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				9DF637DB2964B986000BBBF2 /* RunHSERun */,
+				9D9BDF8C2A0ED27800A1A1BB /* RunHSERunTests */,
 				9DF637DA2964B986000BBBF2 /* Products */,
 				B86A888E7DA7FC1DB09BE205 /* Pods */,
 				65A9A1A583455ACA7304EC4D /* Frameworks */,
@@ -612,6 +641,7 @@
 			isa = PBXGroup;
 			children = (
 				9DF637D92964B986000BBBF2 /* RunHSERun.app */,
+				9D9BDF8B2A0ED27700A1A1BB /* RunHSERunTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -757,6 +787,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9D9BDF8A2A0ED27700A1A1BB /* RunHSERunTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D9BDF912A0ED27800A1A1BB /* Build configuration list for PBXNativeTarget "RunHSERunTests" */;
+			buildPhases = (
+				9D9BDF872A0ED27700A1A1BB /* Sources */,
+				9D9BDF882A0ED27700A1A1BB /* Frameworks */,
+				9D9BDF892A0ED27700A1A1BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D9BDF902A0ED27800A1A1BB /* PBXTargetDependency */,
+			);
+			name = RunHSERunTests;
+			productName = RunHSERunTests;
+			productReference = 9D9BDF8B2A0ED27700A1A1BB /* RunHSERunTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9DF637D82964B986000BBBF2 /* RunHSERun */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DF637ED2964B988000BBBF2 /* Build configuration list for PBXNativeTarget "RunHSERun" */;
@@ -792,9 +840,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					9D9BDF8A2A0ED27700A1A1BB = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 9DF637D82964B986000BBBF2;
+					};
 					9DF637D82964B986000BBBF2 = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -820,11 +872,19 @@
 			projectRoot = "";
 			targets = (
 				9DF637D82964B986000BBBF2 /* RunHSERun */,
+				9D9BDF8A2A0ED27700A1A1BB /* RunHSERunTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9D9BDF892A0ED27700A1A1BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DF637D72964B986000BBBF2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -879,6 +939,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9D9BDF872A0ED27700A1A1BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9BDF8E2A0ED27800A1A1BB /* RunHSERunTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DF637D52964B986000BBBF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -979,6 +1047,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9D9BDF902A0ED27800A1A1BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DF637D82964B986000BBBF2 /* RunHSERun */;
+			targetProxy = 9D9BDF8F2A0ED27800A1A1BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9DF637E72964B988000BBBF2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -991,6 +1067,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9D9BDF922A0ED27800A1A1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 88899A28T3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.finiks.RunHSERunTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunHSERun.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RunHSERun";
+			};
+			name = Debug;
+		};
+		9D9BDF932A0ED27800A1A1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 88899A28T3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.finiks.RunHSERunTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunHSERun.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RunHSERun";
+			};
+			name = Release;
+		};
 		9DF637EB2964B988000BBBF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1184,6 +1298,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9D9BDF912A0ED27800A1A1BB /* Build configuration list for PBXNativeTarget "RunHSERunTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D9BDF922A0ED27800A1A1BB /* Debug */,
+				9D9BDF932A0ED27800A1A1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9DF637D42964B986000BBBF2 /* Build configuration list for PBXProject "RunHSERun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -32,7 +32,6 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
 
     private let userManager: UserManager
     private let friendsManager: FriendsManager
-    private let userDataKeeper: UserDataKeeper
 
     private var userData: User? {
         didSet {
@@ -58,11 +57,9 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
          mainScreenPresenter: MainScreenPresentable,
          friendsScreenPresentable: FriendsPresentable,
          userManager: UserManager,
-         friendsManager: FriendsManager,
-         userDataKeeper: UserDataKeeper) {
+         friendsManager: FriendsManager) {
         self.userManager = userManager
         self.friendsManager = friendsManager
-        self.userDataKeeper = userDataKeeper
         self.mainScreenPresenter = mainScreenPresenter
         self.friendsScreenPresentable = friendsScreenPresentable
 

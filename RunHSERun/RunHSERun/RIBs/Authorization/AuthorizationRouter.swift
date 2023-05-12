@@ -30,7 +30,6 @@ final class AuthorizationRouter: ViewableRouter<AuthorizationInteractable, Autho
 
         super.init(interactor: interactor, viewController: registrationViewController)
         interactor.router = self
-        
     }
 }
 
