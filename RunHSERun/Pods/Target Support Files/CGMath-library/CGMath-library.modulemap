@@ -1,0 +1,6 @@
+module CGMath {
+  umbrella header "CGMath-library-umbrella.h"
+
+  export *
+  module * { export * }
+}

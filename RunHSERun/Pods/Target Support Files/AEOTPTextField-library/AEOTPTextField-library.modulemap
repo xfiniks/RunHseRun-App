@@ -1,0 +1,6 @@
+module AEOTPTextField {
+  umbrella header "AEOTPTextField-library-umbrella.h"
+
+  export *
+  module * { export * }
+}

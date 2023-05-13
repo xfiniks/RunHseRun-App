@@ -21,10 +21,10 @@
   "source_files": "ios/RIBs/Classes/**/*",
   "dependencies": {
     "RxSwift": [
-      "~> 6.0.0"
+      "~> 6.5.0"
     ],
     "RxRelay": [
-      "~> 6.0.0"
+      "~> 6.5.0"
     ]
   }
 }

@@ -1,0 +1,6 @@
+module Pods_RunHSERunTests {
+  umbrella header "Pods-RunHSERunTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

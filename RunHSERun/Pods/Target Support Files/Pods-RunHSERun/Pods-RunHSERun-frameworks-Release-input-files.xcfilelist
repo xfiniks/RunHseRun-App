@@ -1,7 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-RunHSERun/Pods-RunHSERun-frameworks.sh
-${BUILT_PRODUCTS_DIR}/AEOTPTextField/AEOTPTextField.framework
-${BUILT_PRODUCTS_DIR}/CGMath/CGMath.framework
-${BUILT_PRODUCTS_DIR}/FloatingTabBarController/FloatingTabBarController.framework
-${BUILT_PRODUCTS_DIR}/RIBs/RIBs.framework
-${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
-${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/AEOTPTextField-framework/AEOTPTextField.framework
+${BUILT_PRODUCTS_DIR}/CGMath-framework/CGMath.framework
+${BUILT_PRODUCTS_DIR}/FloatingTabBarController-framework/FloatingTabBarController.framework
+${BUILT_PRODUCTS_DIR}/RIBs-framework/RIBs.framework
+${BUILT_PRODUCTS_DIR}/RxRelay-framework/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework

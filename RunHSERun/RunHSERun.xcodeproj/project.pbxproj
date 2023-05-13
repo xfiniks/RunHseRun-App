@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3A7CC53E5DBF066353D5B1 /* libPods-RunHSERunTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3D27084C949374DCD15A03 /* libPods-RunHSERunTests.a */; };
 		9D09289C29E9E4EE008C8119 /* RoomsProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09289B29E9E4EE008C8119 /* RoomsProgressView.swift */; };
 		9D09289F29EA00DD008C8119 /* GameBottomRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09289E29EA00DD008C8119 /* GameBottomRoomsView.swift */; };
 		9D0928B329EAE306008C8119 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0928B229EAE306008C8119 /* AuthService.swift */; };
@@ -61,7 +62,14 @@
 		9D6E4ECD29EDCFC7004C60AD /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4EC929EDCFC7004C60AD /* MainInteractor.swift */; };
 		9D6E4ED029EDD00B004C60AD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4ECF29EDD00B004C60AD /* UIImage+Extension.swift */; };
 		9D6E4ED229EDD59A004C60AD /* TextPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E4ED129EDD59A004C60AD /* TextPredictor.swift */; };
-		9D9BDF8E2A0ED27800A1A1BB /* RunHSERunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDF8D2A0ED27800A1A1BB /* RunHSERunTests.swift */; };
+		9D9BDF962A0EDB0300A1A1BB /* AuthManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDF952A0EDB0300A1A1BB /* AuthManagerMock.swift */; };
+		9D9BDF9B2A0EE55500A1A1BB /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDF9A2A0EE55500A1A1BB /* Mocks.swift */; };
+		9D9BDF9D2A0EE60B00A1A1BB /* LaunchRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDF9C2A0EE60B00A1A1BB /* LaunchRouterTests.swift */; };
+		9D9BDF9F2A0FA03200A1A1BB /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 9D9BDF9E2A0FA03200A1A1BB /* GRPC */; };
+		9D9BDFA22A0FAE7D00A1A1BB /* RootRIBMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFA12A0FAE7D00A1A1BB /* RootRIBMocks.swift */; };
+		9D9BDFA42A0FB4FD00A1A1BB /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFA32A0FB4FD00A1A1BB /* RootInteractorTests.swift */; };
+		9D9BDFA62A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFA52A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift */; };
+		9D9BDFA82A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFA72A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift */; };
 		9DB8881029E5AC6D0068590A /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8880F29E5AC6D0068590A /* SecureStorage.swift */; };
 		9DB8881429E5AEE60068590A /* SecureStorage+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8881329E5AEE60068590A /* SecureStorage+Token.swift */; };
 		9DB8881729E5B19B0068590A /* SecureStorage+PropertyWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8881629E5B19B0068590A /* SecureStorage+PropertyWraper.swift */; };
@@ -122,9 +130,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B3D27084C949374DCD15A03 /* libPods-RunHSERunTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunHSERunTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42125A44BF596AA9A38C63BA /* Pods-RunHSERun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunHSERun.release.xcconfig"; path = "Target Support Files/Pods-RunHSERun/Pods-RunHSERun.release.xcconfig"; sourceTree = "<group>"; };
+		619BB831EED7E1DA29CAA5AA /* Pods-RunHSERunTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunHSERunTests.release.xcconfig"; path = "Target Support Files/Pods-RunHSERunTests/Pods-RunHSERunTests.release.xcconfig"; sourceTree = "<group>"; };
 		61DB9E5CE902A997D4E67718 /* Pods-RunHSERun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunHSERun.debug.xcconfig"; path = "Target Support Files/Pods-RunHSERun/Pods-RunHSERun.debug.xcconfig"; sourceTree = "<group>"; };
 		77A8C297AF1579481160024E /* Pods_RunHSERun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunHSERun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FB249275C6EEA1A2879ECD6 /* Pods-RunHSERunTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunHSERunTests.debug.xcconfig"; path = "Target Support Files/Pods-RunHSERunTests/Pods-RunHSERunTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D09289B29E9E4EE008C8119 /* RoomsProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsProgressView.swift; sourceTree = "<group>"; };
 		9D09289E29EA00DD008C8119 /* GameBottomRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBottomRoomsView.swift; sourceTree = "<group>"; };
 		9D0928B229EAE306008C8119 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -175,7 +186,13 @@
 		9D6E4ECF29EDD00B004C60AD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		9D6E4ED129EDD59A004C60AD /* TextPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPredictor.swift; sourceTree = "<group>"; };
 		9D9BDF8B2A0ED27700A1A1BB /* RunHSERunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunHSERunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D9BDF8D2A0ED27800A1A1BB /* RunHSERunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunHSERunTests.swift; sourceTree = "<group>"; };
+		9D9BDF952A0EDB0300A1A1BB /* AuthManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerMock.swift; sourceTree = "<group>"; };
+		9D9BDF9A2A0EE55500A1A1BB /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		9D9BDF9C2A0EE60B00A1A1BB /* LaunchRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouterTests.swift; sourceTree = "<group>"; };
+		9D9BDFA12A0FAE7D00A1A1BB /* RootRIBMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRIBMocks.swift; sourceTree = "<group>"; };
+		9D9BDFA32A0FB4FD00A1A1BB /* RootInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorTests.swift; sourceTree = "<group>"; };
+		9D9BDFA52A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractorTests.swift; sourceTree = "<group>"; };
+		9D9BDFA72A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRIBMocks.swift; sourceTree = "<group>"; };
 		9DB8880F29E5AC6D0068590A /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		9DB8881329E5AEE60068590A /* SecureStorage+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureStorage+Token.swift"; sourceTree = "<group>"; };
 		9DB8881629E5B19B0068590A /* SecureStorage+PropertyWraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureStorage+PropertyWraper.swift"; sourceTree = "<group>"; };
@@ -231,6 +248,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9BDF9F2A0FA03200A1A1BB /* GRPC in Frameworks */,
+				2B3A7CC53E5DBF066353D5B1 /* libPods-RunHSERunTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +277,7 @@
 				9D09290829EC082B008C8119 /* RxSwift.framework */,
 				9D09290429EC081E008C8119 /* RIBs.framework */,
 				77A8C297AF1579481160024E /* Pods_RunHSERun.framework */,
+				2B3D27084C949374DCD15A03 /* libPods-RunHSERunTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -465,9 +485,55 @@
 		9D9BDF8C2A0ED27800A1A1BB /* RunHSERunTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D9BDF8D2A0ED27800A1A1BB /* RunHSERunTests.swift */,
+				9D9BDFA02A0FAE4500A1A1BB /* RootRIBTests */,
+				9D9BDF982A0EE52C00A1A1BB /* LaunchRouterTests */,
+				9D9BDF972A0EE51900A1A1BB /* AuthorizationRIBTests */,
 			);
 			path = RunHSERunTests;
+			sourceTree = "<group>";
+		};
+		9D9BDF942A0EDA9600A1A1BB /* NetworkingMocks */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDF952A0EDB0300A1A1BB /* AuthManagerMock.swift */,
+			);
+			path = NetworkingMocks;
+			sourceTree = "<group>";
+		};
+		9D9BDF972A0EE51900A1A1BB /* AuthorizationRIBTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDF942A0EDA9600A1A1BB /* NetworkingMocks */,
+				9D9BDFA52A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift */,
+				9D9BDFA72A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift */,
+			);
+			path = AuthorizationRIBTests;
+			sourceTree = "<group>";
+		};
+		9D9BDF982A0EE52C00A1A1BB /* LaunchRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDF992A0EE53E00A1A1BB /* Mocks */,
+				9D9BDF9C2A0EE60B00A1A1BB /* LaunchRouterTests.swift */,
+			);
+			path = LaunchRouterTests;
+			sourceTree = "<group>";
+		};
+		9D9BDF992A0EE53E00A1A1BB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDF9A2A0EE55500A1A1BB /* Mocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		9D9BDFA02A0FAE4500A1A1BB /* RootRIBTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDFA12A0FAE7D00A1A1BB /* RootRIBMocks.swift */,
+				9D9BDFA32A0FB4FD00A1A1BB /* RootInteractorTests.swift */,
+			);
+			path = RootRIBTests;
 			sourceTree = "<group>";
 		};
 		9DB8880E29E5AC110068590A /* Services */ = {
@@ -780,6 +846,8 @@
 			children = (
 				61DB9E5CE902A997D4E67718 /* Pods-RunHSERun.debug.xcconfig */,
 				42125A44BF596AA9A38C63BA /* Pods-RunHSERun.release.xcconfig */,
+				8FB249275C6EEA1A2879ECD6 /* Pods-RunHSERunTests.debug.xcconfig */,
+				619BB831EED7E1DA29CAA5AA /* Pods-RunHSERunTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -791,6 +859,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D9BDF912A0ED27800A1A1BB /* Build configuration list for PBXNativeTarget "RunHSERunTests" */;
 			buildPhases = (
+				28ADDF13BD36ABF0EA547E26 /* [CP] Check Pods Manifest.lock */,
 				9D9BDF872A0ED27700A1A1BB /* Sources */,
 				9D9BDF882A0ED27700A1A1BB /* Frameworks */,
 				9D9BDF892A0ED27700A1A1BB /* Resources */,
@@ -801,6 +870,9 @@
 				9D9BDF902A0ED27800A1A1BB /* PBXTargetDependency */,
 			);
 			name = RunHSERunTests;
+			packageProductDependencies = (
+				9D9BDF9E2A0FA03200A1A1BB /* GRPC */,
+			);
 			productName = RunHSERunTests;
 			productReference = 9D9BDF8B2A0ED27700A1A1BB /* RunHSERunTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -914,6 +986,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RunHSERun/Pods-RunHSERun-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		28ADDF13BD36ABF0EA547E26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RunHSERunTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C74651A84219B06FD8C881A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -943,7 +1037,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D9BDF8E2A0ED27800A1A1BB /* RunHSERunTests.swift in Sources */,
+				9D9BDF9D2A0EE60B00A1A1BB /* LaunchRouterTests.swift in Sources */,
+				9D9BDFA42A0FB4FD00A1A1BB /* RootInteractorTests.swift in Sources */,
+				9D9BDFA82A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift in Sources */,
+				9D9BDF962A0EDB0300A1A1BB /* AuthManagerMock.swift in Sources */,
+				9D9BDF9B2A0EE55500A1A1BB /* Mocks.swift in Sources */,
+				9D9BDFA62A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift in Sources */,
+				9D9BDFA22A0FAE7D00A1A1BB /* RootRIBMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1069,6 +1169,7 @@
 /* Begin XCBuildConfiguration section */
 		9D9BDF922A0ED27800A1A1BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FB249275C6EEA1A2879ECD6 /* Pods-RunHSERunTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1088,6 +1189,7 @@
 		};
 		9D9BDF932A0ED27800A1A1BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 619BB831EED7E1DA29CAA5AA /* Pods-RunHSERunTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1397,6 +1499,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9D47818729687228003A2CAE /* XCRemoteSwiftPackageReference "loading-buttons-ios" */;
 			productName = MHLoadingButton;
+		};
+		9D9BDF9E2A0FA03200A1A1BB /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D442D6029E2E70500A2482D /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
