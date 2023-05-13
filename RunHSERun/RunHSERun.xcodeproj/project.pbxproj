@@ -70,6 +70,10 @@
 		9D9BDFA42A0FB4FD00A1A1BB /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFA32A0FB4FD00A1A1BB /* RootInteractorTests.swift */; };
 		9D9BDFA62A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFA52A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift */; };
 		9D9BDFA82A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFA72A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift */; };
+		9D9BDFAB2A0FD13900A1A1BB /* MainRIBMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFAA2A0FD13900A1A1BB /* MainRIBMocks.swift */; };
+		9D9BDFAD2A0FD16200A1A1BB /* MainInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFAC2A0FD16200A1A1BB /* MainInteractorTests.swift */; };
+		9D9BDFB02A0FD7DB00A1A1BB /* UserManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFAF2A0FD7DB00A1A1BB /* UserManagerMock.swift */; };
+		9D9BDFB22A0FD9AC00A1A1BB /* FriendsManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDFB12A0FD9AC00A1A1BB /* FriendsManagerMock.swift */; };
 		9DB8881029E5AC6D0068590A /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8880F29E5AC6D0068590A /* SecureStorage.swift */; };
 		9DB8881429E5AEE60068590A /* SecureStorage+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8881329E5AEE60068590A /* SecureStorage+Token.swift */; };
 		9DB8881729E5B19B0068590A /* SecureStorage+PropertyWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8881629E5B19B0068590A /* SecureStorage+PropertyWraper.swift */; };
@@ -193,6 +197,10 @@
 		9D9BDFA32A0FB4FD00A1A1BB /* RootInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorTests.swift; sourceTree = "<group>"; };
 		9D9BDFA52A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractorTests.swift; sourceTree = "<group>"; };
 		9D9BDFA72A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRIBMocks.swift; sourceTree = "<group>"; };
+		9D9BDFAA2A0FD13900A1A1BB /* MainRIBMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRIBMocks.swift; sourceTree = "<group>"; };
+		9D9BDFAC2A0FD16200A1A1BB /* MainInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractorTests.swift; sourceTree = "<group>"; };
+		9D9BDFAF2A0FD7DB00A1A1BB /* UserManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerMock.swift; sourceTree = "<group>"; };
+		9D9BDFB12A0FD9AC00A1A1BB /* FriendsManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsManagerMock.swift; sourceTree = "<group>"; };
 		9DB8880F29E5AC6D0068590A /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		9DB8881329E5AEE60068590A /* SecureStorage+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureStorage+Token.swift"; sourceTree = "<group>"; };
 		9DB8881629E5B19B0068590A /* SecureStorage+PropertyWraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureStorage+PropertyWraper.swift"; sourceTree = "<group>"; };
@@ -485,6 +493,7 @@
 		9D9BDF8C2A0ED27800A1A1BB /* RunHSERunTests */ = {
 			isa = PBXGroup;
 			children = (
+				9D9BDFA92A0FCFD500A1A1BB /* MainRIBTests */,
 				9D9BDFA02A0FAE4500A1A1BB /* RootRIBTests */,
 				9D9BDF982A0EE52C00A1A1BB /* LaunchRouterTests */,
 				9D9BDF972A0EE51900A1A1BB /* AuthorizationRIBTests */,
@@ -534,6 +543,25 @@
 				9D9BDFA32A0FB4FD00A1A1BB /* RootInteractorTests.swift */,
 			);
 			path = RootRIBTests;
+			sourceTree = "<group>";
+		};
+		9D9BDFA92A0FCFD500A1A1BB /* MainRIBTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDFAE2A0FD7AF00A1A1BB /* NetworkingMocks */,
+				9D9BDFAA2A0FD13900A1A1BB /* MainRIBMocks.swift */,
+				9D9BDFAC2A0FD16200A1A1BB /* MainInteractorTests.swift */,
+			);
+			path = MainRIBTests;
+			sourceTree = "<group>";
+		};
+		9D9BDFAE2A0FD7AF00A1A1BB /* NetworkingMocks */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDFAF2A0FD7DB00A1A1BB /* UserManagerMock.swift */,
+				9D9BDFB12A0FD9AC00A1A1BB /* FriendsManagerMock.swift */,
+			);
+			path = NetworkingMocks;
 			sourceTree = "<group>";
 		};
 		9DB8880E29E5AC110068590A /* Services */ = {
@@ -1041,8 +1069,12 @@
 				9D9BDFA42A0FB4FD00A1A1BB /* RootInteractorTests.swift in Sources */,
 				9D9BDFA82A0FBD5A00A1A1BB /* AuthorizationRIBMocks.swift in Sources */,
 				9D9BDF962A0EDB0300A1A1BB /* AuthManagerMock.swift in Sources */,
+				9D9BDFAB2A0FD13900A1A1BB /* MainRIBMocks.swift in Sources */,
 				9D9BDF9B2A0EE55500A1A1BB /* Mocks.swift in Sources */,
 				9D9BDFA62A0FBD2500A1A1BB /* AuthorizationInteractorTests.swift in Sources */,
+				9D9BDFB22A0FD9AC00A1A1BB /* FriendsManagerMock.swift in Sources */,
+				9D9BDFAD2A0FD16200A1A1BB /* MainInteractorTests.swift in Sources */,
+				9D9BDFB02A0FD7DB00A1A1BB /* UserManagerMock.swift in Sources */,
 				9D9BDFA22A0FAE7D00A1A1BB /* RootRIBMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
