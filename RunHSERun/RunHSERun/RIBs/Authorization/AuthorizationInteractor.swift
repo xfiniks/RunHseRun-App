@@ -4,7 +4,6 @@ import RxSwift
 protocol AuthorizationRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func moveToOTP()
-    func moveToRegistration()
     func moveToNicknameChoosing()
 }
 
@@ -88,7 +87,7 @@ extension AuthorizationInteractor: OTPPresentableListener {
             case .success(let response):
                 switch response {
                 case .moveNext:
-                    self?.router?.moveToNicknameChoosing()
+                    self?.listener?.didFinish()
 
                 case .needRegistration:
                     self?.router?.moveToNicknameChoosing()
@@ -110,7 +109,7 @@ extension AuthorizationInteractor: NicknameChoosingPresentableListener {
             case .success(let response):
                 switch response {
                 case .moveNext:
-                    self?.router?.moveToNicknameChoosing()
+                    self?.listener?.didFinish()
                 }
 
             case .failure(let error):

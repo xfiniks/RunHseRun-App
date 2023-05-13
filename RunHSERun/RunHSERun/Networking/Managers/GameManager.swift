@@ -1,4 +1,13 @@
-final class GameManager {
+protocol GameManager {
+
+    func makePutInQueueRequest(roomId: Int, completion: @escaping (VoidResult) -> Void)
+    func makeSendTimeRequest(time: Int, gameId: Int, completion: @escaping (VoidResult) -> Void)
+    func makeDeleteFromQueueRequest(token: String, completion: @escaping (VoidResult) -> Void)
+    func makeGetRoomsByCodeRequest(code: String,
+                                   completion: @escaping (Result<Run_Hse_Run_GetRoomByCodeResponse, Error>) -> Void)
+}
+
+final class GameManagerImpl: GameManager {
 
     private let gameService: GameService
     private let secureSettingsKeeper: SecureSettingsKeeper

@@ -1,4 +1,15 @@
-final class UserManager {
+protocol UserManager {
+
+    func makeChangeImageRequest(newImage: String, completion: @escaping (VoidResult) -> Void)
+    func makeGetMeRequest(completion: @escaping (Result<User, Error>) -> Void)
+    func makeChangeNicknameRequest(nickname: String, completion: @escaping (VoidResult) -> Void)
+    func makeGetLeaderboardRequest(completion: @escaping (Result<[User], Error>) -> Void)
+    func makeGetUserByIdRequest(id: Int, completion: @escaping (Result<User, Error>) -> Void)
+    func makeGetUserByNicknameRequest(nickname: String, completion: @escaping (Result<[User], Error>) -> Void)
+
+}
+
+final class UserManagerImpl: UserManager {
 
     private let userService: UserService
     private let secureSettingsKeeper: SecureSettingsKeeper

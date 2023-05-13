@@ -40,11 +40,6 @@ extension AuthorizationRouter: AuthorizationRouting {
         currentViewController = OTPViewController
     }
 
-    func moveToRegistration() {
-        currentViewController.replaceModal(viewController: registrationViewController)
-        currentViewController = registrationViewController
-    }
-
     func moveToNicknameChoosing() {
         currentViewController.replaceModal(viewController: nicknameChoosingViewController)
         currentViewController = registrationViewController

@@ -1,4 +1,12 @@
-final class FriendsManager {
+protocol FriendsManager {
+
+    func makeAddFriendRequest(userId: Int, completion: @escaping (VoidResult) -> Void)
+    func makeDeleteFriendRequest(userId: Int, completion: @escaping (VoidResult) -> Void)
+    func makeGetFriendsRequest(completion: @escaping (Result<Run_Hse_Run_Users, Error>) -> Void)
+
+}
+
+final class FriendsManagerImpl: FriendsManager {
 
     private let friendsService: FriendsService
     private let secureSettingsKeeper: SecureSettingsKeeper

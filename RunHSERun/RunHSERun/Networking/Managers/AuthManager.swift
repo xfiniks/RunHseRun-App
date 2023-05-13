@@ -1,8 +1,16 @@
-final class AuthManager {
+protocol AuthManager {
+
+    func makeSendVerifyEmailRequest(with email: String, completion: @escaping (VoidResult) -> Void)
+    func makeVerifyRequest(with code: Int, completion: @escaping (Result<AuthVerifyResponse, Error>) -> Void)
+    func makeRegistrationRequest(with nickname: String, completion: @escaping (Result<AuthRegisterResponse, Error>) -> Void)
+
+}
+
+final class AuthManagerImpl: AuthManager {
 
     private let userDataKeeper: UserDataKeeper
     private let authService: AuthService
-    private let secureSettingsKeeper: SecureSettingsKeeper
+    private var secureSettingsKeeper: SecureSettingsKeeper
 
     init(userDataKeeper: UserDataKeeper, authService: AuthService, secureSettingsKeeper: SecureSettingsKeeper) {
         self.userDataKeeper = userDataKeeper
